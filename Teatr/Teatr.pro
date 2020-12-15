@@ -23,6 +23,7 @@ HEADERS += \
     mainwindow.h
 
 FORMS += \
+    list_of_performances.ui \
     login.ui \
     mainwindow.ui \
     registration.ui
