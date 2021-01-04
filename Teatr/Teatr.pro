@@ -23,12 +23,28 @@ HEADERS += \
     mainwindow.h
 
 FORMS += \
+    buy_tickets.ui \
+    list_of_actors.ui \
     list_of_performances.ui \
+    list_of_users.ui \
     login.ui \
     mainwindow.ui \
+    more_actor.ui \
+    more_perfomances.ui \
+    more_tickets.ui \
     registration.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    icons/Note-add.svg \
+    icons/Note-remove.svg \
+    icons/Notebook-open.svg \
+    icons/Notebook-save-as.svg \
+    icons/Notebook-save.svg
+
+RESOURCES += \
+    resources.qrc

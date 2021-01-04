@@ -59,12 +59,12 @@
    <widget class="QLineEdit" name="lineEdit_2"/>
    <widget class="QPushButton" name="pushButton">
     <property name="text">
-     <string>Войти</string>
+     <string>Вход</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_2">
     <property name="text">
-     <string>Зарегестрироваться</string>
+     <string>Регистрация</string>
     </property>
    </widget>
   </widget>

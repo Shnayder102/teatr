@@ -39,7 +39,6 @@
      <string>Меню</string>
     </property>
     <addaction name="action"/>
-    <addaction name="action_2"/>
    </widget>
    <addaction name="menu"/>
   </widget>
@@ -54,25 +53,15 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="action_2"/>
    <addaction name="action"/>
   </widget>
   <action name="action">
    <property name="icon">
     <iconset resource="resources.qrc">
-     <normaloff>:/icons/Notebook-save.svg</normaloff>:/icons/Notebook-save.svg</iconset>
-   </property>
-   <property name="text">
-    <string>Сохранить</string>
-   </property>
-  </action>
-  <action name="action_2">
-   <property name="icon">
-    <iconset resource="resources.qrc">
      <normaloff>:/icons/Note-add.svg</normaloff>:/icons/Note-add.svg</iconset>
    </property>
    <property name="text">
-    <string>Добавить новый спектакль</string>
+    <string>Добавить нового актёра</string>
    </property>
   </action>
  </widget>
