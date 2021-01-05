@@ -1,0 +1,10 @@
+debug/actor.o
+debug/login.o
+debug/main.o
+debug/mainwindow.o
+debug/perfomance.o
+debug/qrc_resources.o
+debug/moc_actor.o
+debug/moc_login.o
+debug/moc_mainwindow.o
+debug/moc_perfomance.o

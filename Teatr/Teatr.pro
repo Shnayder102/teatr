@@ -16,21 +16,42 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    actor.cpp \
+    buy_tickets.cpp \
+    list_of_actors.cpp \
+    list_of_performances.cpp \
+    list_of_users.cpp \
+    login.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    more_actor.cpp \
+    more_performances.cpp \
+    more_tickets.cpp \
+    performance.cpp \
+    registration.cpp
 
 HEADERS += \
-    mainwindow.h
+    actor.h \
+    buy_tickets.h \
+    list_of_actors.h \
+    list_of_performances.h \
+    list_of_users.h \
+    login.h \
+    mainwindow.h \
+    more_actor.h \
+    more_performances.h \
+    more_tickets.h \
+    performance.h \
+    registration.h
 
 FORMS += \
-    buy_tickets.ui \
     list_of_actors.ui \
     list_of_performances.ui \
     list_of_users.ui \
     login.ui \
     mainwindow.ui \
     more_actor.ui \
-    more_perfomances.ui \
+    more_performances.ui \
     more_tickets.ui \
     registration.ui
 
