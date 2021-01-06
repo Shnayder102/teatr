@@ -1,4 +1,4 @@
-#include "more_tickets.h"
+#include "tickets.h"
 #include "ui_more_tickets.h"
 
 more_tickets::more_tickets(QWidget *parent) :

@@ -1,4 +1,4 @@
-#include "list_of_performances.h"
+#include "list.h"
 #include "ui_list_of_performances.h"
 
 list_of_performances::list_of_performances(QWidget *parent) :

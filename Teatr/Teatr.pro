@@ -17,43 +17,35 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     actor.cpp \
-    buy_tickets.cpp \
-    list_of_actors.cpp \
-    list_of_performances.cpp \
-    list_of_users.cpp \
+    list.cpp \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
     more_actor.cpp \
     more_performances.cpp \
-    more_tickets.cpp \
     performance.cpp \
-    registration.cpp
+    registration.cpp \
+    tickets.cpp
 
 HEADERS += \
     actor.h \
-    buy_tickets.h \
-    list_of_actors.h \
-    list_of_performances.h \
-    list_of_users.h \
+    list.h \
     login.h \
     mainwindow.h \
     more_actor.h \
     more_performances.h \
-    more_tickets.h \
     performance.h \
-    registration.h
+    registration.h \
+    tickets.h
 
 FORMS += \
-    list_of_actors.ui \
-    list_of_performances.ui \
-    list_of_users.ui \
+    list.ui \
     login.ui \
     mainwindow.ui \
     more_actor.ui \
     more_performances.ui \
-    more_tickets.ui \
-    registration.ui
+    registration.ui \
+    tickets.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -61,11 +53,15 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
+    actors.bin \
     icons/Note-add.svg \
     icons/Note-remove.svg \
     icons/Notebook-open.svg \
     icons/Notebook-save-as.svg \
-    icons/Notebook-save.svg
+    icons/Notebook-save.svg \
+    performance.bin \
+    users.bin \
+    viewer.bin
 
 RESOURCES += \
     resources.qrc
