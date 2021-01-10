@@ -2,6 +2,8 @@
 #define REGISTRATION_H
 
 #include <QWidget>
+#include <QDialog>
+#include <memory> // unique_ptr
 
 namespace Ui {
 class registration;
@@ -15,8 +17,19 @@ public:
     explicit registration(QWidget *parent = nullptr);
     ~registration();
 
+private slots:
+    void on_radioButton_3_clicked(bool checked);
+
+
+    void on_radioButton_2_clicked(bool checked);
+
+    void on_radioButton_clicked(bool checked);
+
+    void on_pushButton_clicked();
+
 private:
     Ui::registration *ui;
+    int urd;
 };
 
 #endif // REGISTRATION_H

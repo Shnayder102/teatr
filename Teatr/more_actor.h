@@ -2,6 +2,7 @@
 #define MORE_ACTOR_H
 
 #include <QWidget>
+#include <QDialog>
 
 namespace Ui {
 class more_actor;

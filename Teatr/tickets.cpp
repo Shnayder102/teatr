@@ -1,14 +1,15 @@
 #include "tickets.h"
-#include "ui_more_tickets.h"
+#include "ui_tickets.h"
+#include <QMessageBox>
 
-more_tickets::more_tickets(QWidget *parent) :
+tickets::tickets(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::more_tickets)
+    ui(new Ui::tickets)
 {
     ui->setupUi(this);
 }
 
-more_tickets::~more_tickets()
+tickets::~tickets()
 {
     delete ui;
 }

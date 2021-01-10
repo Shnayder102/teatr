@@ -1,5 +1,6 @@
 #include "more_performances.h"
 #include "ui_more_performances.h"
+#include <QMessageBox>
 
 more_performances::more_performances(QWidget *parent) :
     QWidget(parent),

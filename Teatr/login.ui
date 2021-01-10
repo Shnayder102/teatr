@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Dialog</class>
- <widget class="QDialog" name="Dialog">
+ <class>login</class>
+ <widget class="QDialog" name="login">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>294</width>
-    <height>233</height>
+    <width>171</width>
+    <height>165</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,10 +16,10 @@
   <widget class="QSplitter" name="splitter">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>40</y>
+     <x>20</x>
+     <y>20</y>
      <width>133</width>
-     <height>161</height>
+     <height>121</height>
     </rect>
    </property>
    <property name="orientation">
@@ -38,7 +38,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="loginedit">
     <property name="text">
      <string/>
     </property>
@@ -56,15 +56,10 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2"/>
+   <widget class="QLineEdit" name="passedit"/>
    <widget class="QPushButton" name="pushButton">
     <property name="text">
      <string>Вход</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_2">
-    <property name="text">
-     <string>Регистрация</string>
     </property>
    </widget>
   </widget>

@@ -1,5 +1,6 @@
 #include "more_actor.h"
 #include "ui_more_actor.h"
+#include <QMessageBox>
 
 more_actor::more_actor(QWidget *parent) :
     QWidget(parent),

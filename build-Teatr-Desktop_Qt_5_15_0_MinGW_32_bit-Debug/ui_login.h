@@ -11,33 +11,32 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QDialog>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSplitter>
+#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
-class Ui_Dialog
+class Ui_login
 {
 public:
     QSplitter *splitter;
     QLabel *label;
-    QLineEdit *lineEdit;
+    QLineEdit *loginedit;
     QLabel *label_2;
-    QLineEdit *lineEdit_2;
+    QLineEdit *passedit;
     QPushButton *pushButton;
-    QPushButton *pushButton_2;
 
-    void setupUi(QDialog *Dialog)
+    void setupUi(QWidget *login)
     {
-        if (Dialog->objectName().isEmpty())
-            Dialog->setObjectName(QString::fromUtf8("Dialog"));
-        Dialog->resize(294, 233);
-        splitter = new QSplitter(Dialog);
+        if (login->objectName().isEmpty())
+            login->setObjectName(QString::fromUtf8("login"));
+        login->resize(171, 161);
+        splitter = new QSplitter(login);
         splitter->setObjectName(QString::fromUtf8("splitter"));
-        splitter->setGeometry(QRect(80, 40, 133, 161));
+        splitter->setGeometry(QRect(20, 20, 133, 121));
         splitter->setOrientation(Qt::Vertical);
         label = new QLabel(splitter);
         label->setObjectName(QString::fromUtf8("label"));
@@ -46,43 +45,39 @@ public:
         label->setFont(font);
         label->setAlignment(Qt::AlignCenter);
         splitter->addWidget(label);
-        lineEdit = new QLineEdit(splitter);
-        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
-        splitter->addWidget(lineEdit);
+        loginedit = new QLineEdit(splitter);
+        loginedit->setObjectName(QString::fromUtf8("loginedit"));
+        splitter->addWidget(loginedit);
         label_2 = new QLabel(splitter);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setFont(font);
         label_2->setAlignment(Qt::AlignCenter);
         splitter->addWidget(label_2);
-        lineEdit_2 = new QLineEdit(splitter);
-        lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
-        splitter->addWidget(lineEdit_2);
+        passedit = new QLineEdit(splitter);
+        passedit->setObjectName(QString::fromUtf8("passedit"));
+        splitter->addWidget(passedit);
         pushButton = new QPushButton(splitter);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         splitter->addWidget(pushButton);
-        pushButton_2 = new QPushButton(splitter);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        splitter->addWidget(pushButton_2);
 
-        retranslateUi(Dialog);
+        retranslateUi(login);
 
-        QMetaObject::connectSlotsByName(Dialog);
+        QMetaObject::connectSlotsByName(login);
     } // setupUi
 
-    void retranslateUi(QDialog *Dialog)
+    void retranslateUi(QWidget *login)
     {
-        Dialog->setWindowTitle(QCoreApplication::translate("Dialog", "Dialog", nullptr));
-        label->setText(QCoreApplication::translate("Dialog", "\320\233\320\276\320\263\320\270\320\275", nullptr));
-        lineEdit->setText(QString());
-        label_2->setText(QCoreApplication::translate("Dialog", "\320\237\320\260\321\200\320\276\320\273\321\214", nullptr));
-        pushButton->setText(QCoreApplication::translate("Dialog", "\320\222\321\205\320\276\320\264", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("Dialog", "\320\240\320\265\320\263\320\270\321\201\321\202\321\200\320\260\321\206\320\270\321\217", nullptr));
+        login->setWindowTitle(QCoreApplication::translate("login", "Form", nullptr));
+        label->setText(QCoreApplication::translate("login", "\320\233\320\276\320\263\320\270\320\275", nullptr));
+        loginedit->setText(QString());
+        label_2->setText(QCoreApplication::translate("login", "\320\237\320\260\321\200\320\276\320\273\321\214", nullptr));
+        pushButton->setText(QCoreApplication::translate("login", "\320\222\321\205\320\276\320\264", nullptr));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class Dialog: public Ui_Dialog {};
+    class login: public Ui_login {};
 } // namespace Ui
 
 QT_END_NAMESPACE

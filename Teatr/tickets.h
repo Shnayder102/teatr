@@ -1,22 +1,23 @@
-#ifndef MORE_TICKETS_H
-#define MORE_TICKETS_H
+#ifndef TICKETS_H
+#define TICKETS_H
 
 #include <QWidget>
+#include <QDialog>
 
 namespace Ui {
-class more_tickets;
+class tickets;
 }
 
-class more_tickets : public QWidget
+class tickets : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit more_tickets(QWidget *parent = nullptr);
-    ~more_tickets();
+    explicit tickets(QWidget *parent = nullptr);
+    ~tickets();
 
 private:
-    Ui::more_tickets *ui;
+    Ui::tickets *ui;
 };
 
-#endif // MORE_TICKETS_H
+#endif // TICKETS_H

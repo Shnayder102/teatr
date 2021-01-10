@@ -18,6 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     actor.cpp \
     list.cpp \
+    list_users.cpp \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -25,18 +26,21 @@ SOURCES += \
     more_performances.cpp \
     performance.cpp \
     registration.cpp \
-    tickets.cpp
+    tickets.cpp \
+    users.cpp
 
 HEADERS += \
     actor.h \
     list.h \
+    list_users.h \
     login.h \
     mainwindow.h \
     more_actor.h \
     more_performances.h \
     performance.h \
     registration.h \
-    tickets.h
+    tickets.h \
+    users.h
 
 FORMS += \
     list.ui \

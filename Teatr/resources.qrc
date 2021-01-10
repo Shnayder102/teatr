@@ -6,9 +6,5 @@
         <file>icons/Notebook-open.svg</file>
         <file>icons/Notebook-save-as.svg</file>
         <file>icons/Notebook-save.svg</file>
-        <file>blue.png</file>
-        <file>yellow.png</file>
-        <file>white.png</file>
-        <file>scene.bmp</file>
     </qresource>
 </RCC>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>list</class>
+ <widget class="QMainWindow" name="list">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -38,8 +38,8 @@
     <property name="title">
      <string>Меню</string>
     </property>
-    <addaction name="action"/>
-    <addaction name="action_2"/>
+    <addaction name="save"/>
+    <addaction name="add"/>
    </widget>
    <addaction name="menu"/>
   </widget>
@@ -54,10 +54,10 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="action_2"/>
-   <addaction name="action"/>
+   <addaction name="add"/>
+   <addaction name="save"/>
   </widget>
-  <action name="action">
+  <action name="save">
    <property name="icon">
     <iconset resource="resources.qrc">
      <normaloff>:/icons/Notebook-save.svg</normaloff>:/icons/Notebook-save.svg</iconset>
@@ -66,13 +66,13 @@
     <string>Сохранить</string>
    </property>
   </action>
-  <action name="action_2">
+  <action name="add">
    <property name="icon">
     <iconset resource="resources.qrc">
      <normaloff>:/icons/Note-add.svg</normaloff>:/icons/Note-add.svg</iconset>
    </property>
    <property name="text">
-    <string>Добавить новый спектакль</string>
+    <string>Добавить</string>
    </property>
   </action>
  </widget>
