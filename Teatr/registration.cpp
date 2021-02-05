@@ -48,3 +48,8 @@ void registration::on_pushButton_clicked()
     out << zap;
     this->close();
 }
+
+void registration::setUser(Users *user)
+{
+    mUser = user;
+}

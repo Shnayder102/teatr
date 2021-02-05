@@ -34,7 +34,7 @@ list::list(QWidget *parent) :
     ui->setupUi(this);
     // Настраиваем таблицу заметок, чтобы её последняя колонка занимала всё доступное место
     ui->tableView->horizontalHeader()->setStretchLastSection(true);
-
+    newList();
 }
 
 list::~list()
@@ -44,7 +44,8 @@ list::~list()
 
 void list::on_add_triggered()
 {
-    registration *r = new registration;
+    registration r(this);
+    Users user;
     r->show();
 }
 
@@ -88,7 +89,7 @@ void list::setlist(list_users *list)
 
 bool list::on_save_triggered()
 {
-    saveNotebookToFile("users.bin");
+    saveNotebookToFile(zag);
     // Сигнализируем о готовности
     emit listReady();
     // Сигнализируем о сохранении записной книжки
@@ -126,6 +127,6 @@ void list::saveNotebookToFile(QString fileName)
     catch (const std::exception &e)
     {
         // Если при сохранении файла возникла исключительная ситуация, сообщить пользователю
-        QMessageBox::critical(this, "ИС Театр", tr("Unable to write to the file %1: %2").arg(fileName).arg(e.what()));
+        QMessageBox::critical(this, "ИС Театр", tr("Не удалось записать данные в %1: %2").arg(fileName).arg(e.what()));
     }
 }

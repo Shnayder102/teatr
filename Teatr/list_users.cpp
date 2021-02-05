@@ -46,16 +46,16 @@ QModelIndex list_users::parent(const QModelIndex &index) const
 
 int list_users::rowCount(const QModelIndex &parent) const
 {
-    if (!parent.isValid())
-        return 0;
+    if (!parent.isValid()) return us_l.size();
+    else return 0;
 
     // FIXME: Implement me!
 }
 
 int list_users::columnCount(const QModelIndex &parent) const
 {
-    if (!parent.isValid())
-        return 0;
+    if (!parent.isValid()) return 2;
+    else return 0;
 
     // FIXME: Implement me!
 }
@@ -113,7 +113,7 @@ void list_users::save(QDataStream &ost) const
         // Если возникла ошибка, запускаем исключительную ситуацию
         if (ost.status() == QDataStream::WriteFailed)
         {
-            throw std::runtime_error(tr("Write to the stream failed").toStdString());
+            throw std::runtime_error(tr("Запись в поток была прервана").toStdString());
         }
     }
 }
