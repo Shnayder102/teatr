@@ -37,3 +37,15 @@ void Users::load(QDataStream &ist)
     ist >> mLogin >> mPass;
 }
 
+void Users::setLog(QString s)
+{
+    mLogin=s;
+}
+void Users::setPass(QString s)
+{
+    mPass=s;
+}
+void Users::setLvl(int s)
+{
+    mLvl=s;
+}

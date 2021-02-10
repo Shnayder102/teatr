@@ -31,7 +31,7 @@ void login::on_pushButton_clicked()
         try
         {
             // Создаём объект inf, связанный с файлом fileName
-            QFile inf("E:/Teatr/Teatr/users.bin");
+            QFile inf("users.bin");
             // Открываем файл только для чтения
             if (!inf.open(QIODevice::ReadOnly))
             {

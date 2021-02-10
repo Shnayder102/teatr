@@ -1,7 +1,6 @@
 #include "list_users.h"
 
-list_users::list_users(QObject *parent)
-    : QAbstractItemModel(parent)
+list_users::list_users()
 {
 }
 
@@ -34,30 +33,17 @@ QVariant list_users::headerData(int section, Qt::Orientation orientation, int ro
     return QVariant();
 }
 
-QModelIndex list_users::index(int row, int column, const QModelIndex &parent) const
-{
-    // FIXME: Implement me!
-}
-
-QModelIndex list_users::parent(const QModelIndex &index) const
-{
-    // FIXME: Implement me!
-}
 
 int list_users::rowCount(const QModelIndex &parent) const
 {
     if (!parent.isValid()) return us_l.size();
     else return 0;
-
-    // FIXME: Implement me!
 }
 
 int list_users::columnCount(const QModelIndex &parent) const
 {
     if (!parent.isValid()) return 2;
     else return 0;
-
-    // FIXME: Implement me!
 }
 
 QVariant list_users::data(const QModelIndex &index, int role) const

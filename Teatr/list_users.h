@@ -1,34 +1,24 @@
 #ifndef LIST_USERS_H
 #define LIST_USERS_H
 
-#include <QAbstractItemModel>
+#include <QAbstractTableModel>
 
 #include "users.h"
 #include <cstddef> // size_t
 
 
-class list_users : public QAbstractItemModel
+class list_users : public QAbstractTableModel
 {
     Q_OBJECT
 
 public:
     using SizeType = int;
-    explicit list_users(QObject *parent = nullptr);
+    list_users();
     list_users::SizeType size() const;
-
-
-    // Header:
-    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
-
-    // Basic functionality:
-    QModelIndex index(int row, int column,
-                      const QModelIndex &parent = QModelIndex()) const override;
-    QModelIndex parent(const QModelIndex &index) const override;
-
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
-
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const Q_DECL_OVERRIDE;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE;
+    int columnCount(const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const Q_DECL_OVERRIDE;
     void insert(const Users &user);
     //! Сохраняет записную книжку в поток \a ost.
     void save(QDataStream &ost) const;

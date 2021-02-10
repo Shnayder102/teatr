@@ -16,11 +16,15 @@ public:
     const QString &pass() const;
     void save(QDataStream &ost) const;
     void load(QDataStream &ist);
+    void setLog(QString s);
+    void setPass(QString s);
+    void setLvl(int s);
 private:
     //! Заголовок заметки.
     QString mLogin;
     //! Текст заметки.
     QString mPass;
+    QString mLvl;
 };
 
 inline QDataStream &operator<<(QDataStream &ost, const Users &users)

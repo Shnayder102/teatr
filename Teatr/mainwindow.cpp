@@ -22,6 +22,8 @@ void MainWindow::on_pushButton_4_clicked()
 {
     list *l=new list(this);
     l->setTitle("Список пользователей");
+    l->setFileName("users.bin");
+    l->openFile();
     l->show();
 }
 

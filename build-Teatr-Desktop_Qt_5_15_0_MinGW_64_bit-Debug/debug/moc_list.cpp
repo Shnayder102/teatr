@@ -23,7 +23,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_list_t {
     QByteArrayData data[16];
-    char stringdata0[181];
+    char stringdata0[168];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -42,19 +42,19 @@ QT_MOC_LITERAL(6, 48, 9), // "listSaved"
 QT_MOC_LITERAL(7, 58, 10), // "listClosed"
 QT_MOC_LITERAL(8, 69, 16), // "on_add_triggered"
 QT_MOC_LITERAL(9, 86, 18), // "refreshWindowTitle"
-QT_MOC_LITERAL(10, 105, 7), // "newList"
-QT_MOC_LITERAL(11, 113, 10), // "createlist"
-QT_MOC_LITERAL(12, 124, 7), // "setlist"
-QT_MOC_LITERAL(13, 132, 11), // "list_users*"
-QT_MOC_LITERAL(14, 144, 17), // "on_save_triggered"
-QT_MOC_LITERAL(15, 162, 18) // "saveNotebookToFile"
+QT_MOC_LITERAL(10, 105, 7), // "setlist"
+QT_MOC_LITERAL(11, 113, 11), // "list_users*"
+QT_MOC_LITERAL(12, 125, 17), // "on_save_triggered"
+QT_MOC_LITERAL(13, 143, 14), // "saveListToFile"
+QT_MOC_LITERAL(14, 158, 7), // "setList"
+QT_MOC_LITERAL(15, 166, 1) // "l"
 
     },
     "list\0listReady\0\0listCreated\0listOpened\0"
     "fileName\0listSaved\0listClosed\0"
     "on_add_triggered\0refreshWindowTitle\0"
-    "newList\0createlist\0setlist\0list_users*\0"
-    "on_save_triggered\0saveNotebookToFile"
+    "setlist\0list_users*\0on_save_triggered\0"
+    "saveListToFile\0setList\0l"
 };
 #undef QT_MOC_LITERAL
 
@@ -64,7 +64,7 @@ static const uint qt_meta_data_list[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      12,   14, // methods
+      11,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -72,20 +72,19 @@ static const uint qt_meta_data_list[] = {
        5,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   74,    2, 0x06 /* Public */,
-       3,    0,   75,    2, 0x06 /* Public */,
-       4,    1,   76,    2, 0x06 /* Public */,
-       6,    0,   79,    2, 0x06 /* Public */,
-       7,    0,   80,    2, 0x06 /* Public */,
+       1,    0,   69,    2, 0x06 /* Public */,
+       3,    0,   70,    2, 0x06 /* Public */,
+       4,    1,   71,    2, 0x06 /* Public */,
+       6,    0,   74,    2, 0x06 /* Public */,
+       7,    0,   75,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       8,    0,   81,    2, 0x08 /* Private */,
-       9,    0,   82,    2, 0x08 /* Private */,
-      10,    0,   83,    2, 0x08 /* Private */,
-      11,    0,   84,    2, 0x08 /* Private */,
-      12,    1,   85,    2, 0x08 /* Private */,
-      14,    0,   88,    2, 0x08 /* Private */,
-      15,    1,   89,    2, 0x08 /* Private */,
+       8,    0,   76,    2, 0x08 /* Private */,
+       9,    0,   77,    2, 0x08 /* Private */,
+      10,    1,   78,    2, 0x08 /* Private */,
+      12,    0,   81,    2, 0x08 /* Private */,
+      13,    0,   82,    2, 0x08 /* Private */,
+      14,    1,   83,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
@@ -95,13 +94,12 @@ static const uint qt_meta_data_list[] = {
     QMetaType::Void,
 
  // slots: parameters
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 13,    0,
     QMetaType::Bool,
-    QMetaType::Void, QMetaType::QString,    5,
+    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 11,    0,
+    QMetaType::Bool,
+    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 11,   15,
 
        0        // eod
 };
@@ -117,20 +115,27 @@ void list::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
         case 2: _t->listOpened((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 3: _t->listSaved(); break;
         case 4: _t->listClosed(); break;
-        case 5: _t->on_add_triggered(); break;
-        case 6: _t->refreshWindowTitle(); break;
-        case 7: _t->newList(); break;
-        case 8: _t->createlist(); break;
-        case 9: _t->setlist((*reinterpret_cast< list_users*(*)>(_a[1]))); break;
-        case 10: { bool _r = _t->on_save_triggered();
+        case 5: { bool _r = _t->on_add_triggered();
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 11: _t->saveNotebookToFile((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 6: _t->refreshWindowTitle(); break;
+        case 7: _t->setlist((*reinterpret_cast< list_users*(*)>(_a[1]))); break;
+        case 8: { bool _r = _t->on_save_triggered();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 9: _t->saveListToFile(); break;
+        case 10: _t->setList((*reinterpret_cast< list_users*(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-        case 9:
+        case 7:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+            case 0:
+                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< list_users* >(); break;
+            }
+            break;
+        case 10:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:
@@ -207,13 +212,13 @@ int list::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 12)
+        if (_id < 11)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 12;
+        _id -= 11;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 12)
+        if (_id < 11)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 12;
+        _id -= 11;
     }
     return _id;
 }

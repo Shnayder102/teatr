@@ -18,15 +18,16 @@ public:
     explicit list(QWidget *parent = nullptr);
     ~list();
     void setTitle(QString zagolovok);
+    bool openFile();
+    void setFileName(QString fileName);
 
 private slots:
-    void on_add_triggered();
+    bool on_add_triggered();
     void refreshWindowTitle();
-    void newList();
-    void createlist();
     void setlist(list_users *list);
     bool on_save_triggered();
-    void saveNotebookToFile(QString fileName);
+    void saveListToFile();
+    void setList(list_users *l);
 
 
 signals:
@@ -46,8 +47,7 @@ signals:
 
 private:
     Ui::list *ui;
-    QString zag;
-    QFile file;
+    QString zag, f;
     std::unique_ptr<list_users> mlist;
 };
 

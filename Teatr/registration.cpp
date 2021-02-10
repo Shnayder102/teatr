@@ -5,7 +5,7 @@
 #include <QMessageBox>
 
 registration::registration(QWidget *parent) :
-    QWidget(parent),
+    QDialog(parent),
     ui(new Ui::registration)
 {
     ui->setupUi(this);
@@ -18,17 +18,17 @@ registration::~registration()
 
 void registration::on_radioButton_3_clicked(bool checked)
 {
-    if (checked) urd=1;
+    if (checked) mUser->setLvl(1);
 }
 
 void registration::on_radioButton_2_clicked(bool checked)
 {
-    if (checked) urd=2;
+    if (checked) mUser->setLvl(2);
 }
 
 void registration::on_radioButton_clicked(bool checked)
 {
-    if (checked) urd=3;
+    if (checked) mUser->setLvl(3);
 }
 
 void registration::on_pushButton_clicked()
@@ -37,16 +37,9 @@ void registration::on_pushButton_clicked()
     {
         QMessageBox::warning(this, "Ошибка регистрации", "Проверьте правильность введенных имени пользователя и пароля.");
     }
-    QFile us("E:/Teatr/Teatr/users.bin");
-    if (!us.open(QIODevice::WriteOnly))
-    {
-        throw std::runtime_error((tr("open(): ") + us.errorString()).toStdString());
-    }
-    QString zap="";
-    zap=ui->new_login->text() + " " + ui->new_pass->text() + " " + urd + "\n";
-    QDataStream out(&us);
-    out << zap;
-    this->close();
+    mUser->setLog(ui->new_login->text());
+    mUser->setPass(ui->new_pass->text());
+    QDialog::accept();
 }
 
 void registration::setUser(Users *user)

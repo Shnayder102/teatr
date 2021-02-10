@@ -34,7 +34,7 @@ list::list(QWidget *parent) :
     ui->setupUi(this);
     // Настраиваем таблицу заметок, чтобы её последняя колонка занимала всё доступное место
     ui->tableView->horizontalHeader()->setStretchLastSection(true);
-    newList();
+
 }
 
 list::~list()
@@ -42,11 +42,18 @@ list::~list()
     delete ui;
 }
 
-void list::on_add_triggered()
+bool list::on_add_triggered()
 {
     registration r(this);
     Users user;
-    r->show();
+    r.setUser(&user);
+    if (r.exec() != registration::Accepted)
+    {
+        return false;
+    }
+    // Вставляем заметку в записную книжку
+    mlist->insert(user);
+    return true;
 }
 
 void list::refreshWindowTitle()
@@ -59,22 +66,10 @@ void list::setTitle(QString zagolovok)
     zag = zagolovok;
     refreshWindowTitle();
 }
-
-void list::newList()
+void list::setFileName(QString fileName)
 {
-    // Создаём новую записную книжку
-    createlist();
-    // Сигнализируем о готовности
-    emit listReady();
-    // Сигнализируем о создании записной книжки
-    emit listCreated();
+    f=fileName;
 }
-
-void list::createlist()
-{
-    setlist(new list_users);
-}
-
 void list::setlist(list_users *list)
 {
     /*
@@ -89,7 +84,7 @@ void list::setlist(list_users *list)
 
 bool list::on_save_triggered()
 {
-    saveNotebookToFile(zag);
+    saveListToFile();
     // Сигнализируем о готовности
     emit listReady();
     // Сигнализируем о сохранении записной книжки
@@ -97,7 +92,7 @@ bool list::on_save_triggered()
     return true;
 }
 
-void list::saveNotebookToFile(QString fileName)
+void list::saveListToFile()
 {
     // Блок обработки исключительных ситуаций
     try
@@ -109,7 +104,7 @@ void list::saveNotebookToFile(QString fileName)
          * завершения операции сохранения. Само сохранение происходит при вызове
          * метода commit().
          */
-        QSaveFile outf(fileName);
+        QSaveFile outf(f);
         // Открываем файл только для записи
         outf.open(QIODevice::WriteOnly);
         // Привязываем к файлу поток, позволяющий выводить объекты Qt
@@ -127,6 +122,53 @@ void list::saveNotebookToFile(QString fileName)
     catch (const std::exception &e)
     {
         // Если при сохранении файла возникла исключительная ситуация, сообщить пользователю
-        QMessageBox::critical(this, "ИС Театр", tr("Не удалось записать данные в %1: %2").arg(fileName).arg(e.what()));
+        QMessageBox::critical(this, "ИС Театр", tr("Не удалось записать данные в %1: %2").arg(f).arg(e.what()));
     }
+}
+
+bool list::openFile()
+{
+    try
+    {
+        // Создаём объект inf, связанный с файлом fileName
+        QFile inf(f);
+        // Открываем файл только для чтения
+        if (!inf.open(QIODevice::ReadOnly))
+        {
+            throw std::runtime_error((tr("open(): ") + inf.errorString()).toStdString());
+        }
+        // Привязываем к файлу поток, позволяющий считывать объекты Qt
+        QDataStream ist(&inf);
+        // Создаём новый объект записной книжки
+        std::unique_ptr<list_users> nb(new list_users);
+        // Загружаем записную книжку из файла
+        ist >> *nb;
+        // Устанавливаем новую записную книжку в качестве текущей.
+        // Метод release() забирает указатель у объекта nb
+        setList(nb.release());
+    }
+    catch (const std::exception &e)
+    {
+        // Если при открытии файла возникла исключительная ситуация, сообщить пользователю
+        QMessageBox::critical(this, "ИС Театр", tr("Не удалось прочитать данные данные из %1: %2").arg(f).arg(e.what()));
+        return false;
+    }
+    // Сигнализируем о готовности
+    emit listReady();
+    //Включаем все связанные с обработкой записной книжки виджеты
+    // Сигнализируем об открытии записной книжки
+    emit listOpened(f);
+    return true;
+}
+
+void list::setList(list_users *l)
+{
+    /*
+     * Заменяем имеющийся указатель на объект записной книжки новым.
+     * Если в mNotebook хранился какой-то ненулевой указатель на объект,
+     * то метод reset() удалит его автоматически
+     */
+    mlist.reset(l);
+    // Связываем новый объект записной книжки с таблицей заметок в главном окне
+    ui->tableView->setModel(mlist.get());
 }
