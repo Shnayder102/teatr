@@ -37,26 +37,28 @@ public:
     QLineEdit *lineEdit_4;
     QLabel *label_5;
     QLineEdit *lineEdit_5;
-    QLineEdit *lineEdit_6;
     QLabel *label_6;
+    QLineEdit *lineEdit_6;
 
     void setupUi(QWidget *more_actor)
     {
         if (more_actor->objectName().isEmpty())
             more_actor->setObjectName(QString::fromUtf8("more_actor"));
-        more_actor->resize(431, 321);
+        more_actor->resize(422, 252);
+        more_actor->setMinimumSize(QSize(422, 252));
+        more_actor->setMaximumSize(QSize(422, 252));
         pushButton_3 = new QPushButton(more_actor);
         pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
-        pushButton_3->setGeometry(QRect(160, 260, 81, 51));
+        pushButton_3->setGeometry(QRect(150, 190, 81, 51));
         pushButton = new QPushButton(more_actor);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(340, 260, 81, 51));
+        pushButton->setGeometry(QRect(330, 190, 81, 51));
         pushButton_2 = new QPushButton(more_actor);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        pushButton_2->setGeometry(QRect(250, 260, 81, 51));
+        pushButton_2->setGeometry(QRect(240, 190, 81, 51));
         layoutWidget = new QWidget(more_actor);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(20, 20, 391, 221));
+        layoutWidget->setGeometry(QRect(20, 20, 391, 161));
         formLayout = new QFormLayout(layoutWidget);
         formLayout->setObjectName(QString::fromUtf8("formLayout"));
         formLayout->setContentsMargins(0, 0, 0, 0);
@@ -67,6 +69,8 @@ public:
 
         lineEdit = new QLineEdit(layoutWidget);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+        lineEdit->setMinimumSize(QSize(285, 20));
+        lineEdit->setMaximumSize(QSize(285, 20));
 
         formLayout->setWidget(0, QFormLayout::FieldRole, lineEdit);
 
@@ -77,6 +81,8 @@ public:
 
         lineEdit_2 = new QLineEdit(layoutWidget);
         lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
+        lineEdit_2->setMinimumSize(QSize(285, 20));
+        lineEdit_2->setMaximumSize(QSize(285, 20));
 
         formLayout->setWidget(1, QFormLayout::FieldRole, lineEdit_2);
 
@@ -87,6 +93,8 @@ public:
 
         lineEdit_3 = new QLineEdit(layoutWidget);
         lineEdit_3->setObjectName(QString::fromUtf8("lineEdit_3"));
+        lineEdit_3->setMinimumSize(QSize(285, 20));
+        lineEdit_3->setMaximumSize(QSize(285, 20));
 
         formLayout->setWidget(2, QFormLayout::FieldRole, lineEdit_3);
 
@@ -97,6 +105,8 @@ public:
 
         lineEdit_4 = new QLineEdit(layoutWidget);
         lineEdit_4->setObjectName(QString::fromUtf8("lineEdit_4"));
+        lineEdit_4->setMinimumSize(QSize(285, 20));
+        lineEdit_4->setMaximumSize(QSize(285, 20));
 
         formLayout->setWidget(3, QFormLayout::FieldRole, lineEdit_4);
 
@@ -107,18 +117,22 @@ public:
 
         lineEdit_5 = new QLineEdit(layoutWidget);
         lineEdit_5->setObjectName(QString::fromUtf8("lineEdit_5"));
+        lineEdit_5->setMinimumSize(QSize(285, 20));
+        lineEdit_5->setMaximumSize(QSize(285, 20));
 
         formLayout->setWidget(4, QFormLayout::FieldRole, lineEdit_5);
-
-        lineEdit_6 = new QLineEdit(layoutWidget);
-        lineEdit_6->setObjectName(QString::fromUtf8("lineEdit_6"));
-
-        formLayout->setWidget(5, QFormLayout::FieldRole, lineEdit_6);
 
         label_6 = new QLabel(layoutWidget);
         label_6->setObjectName(QString::fromUtf8("label_6"));
 
         formLayout->setWidget(5, QFormLayout::LabelRole, label_6);
+
+        lineEdit_6 = new QLineEdit(layoutWidget);
+        lineEdit_6->setObjectName(QString::fromUtf8("lineEdit_6"));
+        lineEdit_6->setMinimumSize(QSize(285, 20));
+        lineEdit_6->setMaximumSize(QSize(285, 20));
+
+        formLayout->setWidget(5, QFormLayout::FieldRole, lineEdit_6);
 
 
         retranslateUi(more_actor);

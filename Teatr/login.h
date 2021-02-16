@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <memory> // unique_ptr
+#include "list_users.h"
 
 
 namespace Ui {
@@ -23,6 +24,7 @@ private slots:
 
 private:
     Ui::login *log;
+    list_users l;
 };
 
 #endif // LOGIN_H

@@ -1,29 +1,46 @@
-#ifndef PERFOMANCE_H
-#define PERFOMANCE_H
+#ifndef PERFORMANCE_H
+#define PERFORMANCE_H
 
-#include <QAbstractItemModel>
+#include <QDataStream>
+#include <QString>
 
-class performance : public QAbstractItemModel
+class Performance
 {
-    Q_OBJECT
-
 public:
-    explicit performance(QObject *parent = nullptr);
-
-    // Header:
-    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
-
-    // Basic functionality:
-    QModelIndex index(int row, int column,
-                      const QModelIndex &parent = QModelIndex()) const override;
-    QModelIndex parent(const QModelIndex &index) const override;
-
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
-
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
-
+    Performance();
+    Performance(QString author, QString name, QString producer, std::vector<QString> actors, std::vector<QString> date);
+    const QString &author() const;
+    const QString &name() const;
+    const QString &producer() const;
+    const std::vector<QString> &actors() const;
+    const std::vector<QString> &date() const;
+    void save(QDataStream &ost) const;
+    void load(QDataStream &ist);
+    void setAuthor(QString s);
+    void setName(QString s);
+    void setProducer(QString s);
+    void setActors (std::vector<QString> s);
+    void setDate(std::vector<QString> s);
 private:
+    //! Заголовок заметки.
+    QString mAuthor;
+    //! Текст заметки.
+    QString mName;
+    QString mProducer;
+    std::vector<QString> mActors;
+    std::vector<QString> mDate;
 };
 
-#endif // PERFOMANCE_H
+inline QDataStream &operator<<(QDataStream &ost, const Performance &p)
+{
+    p.save(ost);
+    return ost;
+}
+
+inline QDataStream &operator>>(QDataStream &ist, Performance &p)
+{
+    p.load(ist);
+    return ist;
+}
+
+#endif // PERFORMANCE_H

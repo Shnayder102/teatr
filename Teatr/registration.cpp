@@ -36,6 +36,12 @@ void registration::on_pushButton_clicked()
     if ((ui->new_pass->text()!=ui->new_pass2->text()) || (ui->new_login->text()=="") || (ui->new_pass->text()=="") || (ui->new_pass2->text()==""))
     {
         QMessageBox::warning(this, "Ошибка регистрации", "Проверьте правильность введенных имени пользователя и пароля.");
+        return;
+    }
+    if (mUser->lvl()==0)
+    {
+        QMessageBox::warning(this, "Ошибка регистрации", "Пожалуйста, выберите уровень доступа пользователя");
+        return;
     }
     mUser->setLog(ui->new_login->text());
     mUser->setPass(ui->new_pass->text());

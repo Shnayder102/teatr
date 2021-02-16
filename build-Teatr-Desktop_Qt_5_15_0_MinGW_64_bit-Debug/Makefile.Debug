@@ -51,6 +51,7 @@ OBJECTS_DIR   = debug
 ####### Files
 
 SOURCES       = ..\Teatr\actor.cpp \
+		..\Teatr\l_performance.cpp \
 		..\Teatr\list.cpp \
 		..\Teatr\list_users.cpp \
 		..\Teatr\login.cpp \
@@ -63,16 +64,17 @@ SOURCES       = ..\Teatr\actor.cpp \
 		..\Teatr\tickets.cpp \
 		..\Teatr\users.cpp debug\qrc_resources.cpp \
 		debug\moc_actor.cpp \
+		debug\moc_l_performance.cpp \
 		debug\moc_list.cpp \
 		debug\moc_list_users.cpp \
 		debug\moc_login.cpp \
 		debug\moc_mainwindow.cpp \
 		debug\moc_more_actor.cpp \
 		debug\moc_more_performances.cpp \
-		debug\moc_performance.cpp \
 		debug\moc_registration.cpp \
 		debug\moc_tickets.cpp
 OBJECTS       = debug/actor.o \
+		debug/l_performance.o \
 		debug/list.o \
 		debug/list_users.o \
 		debug/login.o \
@@ -86,13 +88,13 @@ OBJECTS       = debug/actor.o \
 		debug/users.o \
 		debug/qrc_resources.o \
 		debug/moc_actor.o \
+		debug/moc_l_performance.o \
 		debug/moc_list.o \
 		debug/moc_list_users.o \
 		debug/moc_login.o \
 		debug/moc_mainwindow.o \
 		debug/moc_more_actor.o \
 		debug/moc_more_performances.o \
-		debug/moc_performance.o \
 		debug/moc_registration.o \
 		debug/moc_tickets.o
 
@@ -102,9 +104,10 @@ DIST          = actors.bin \
 		icons/Notebook-open.svg \
 		icons/Notebook-save-as.svg \
 		icons/Notebook-save.svg \
-		performance.bin \
+		l_performance.bin \
 		users.bin \
 		viewer.bin ..\Teatr\actor.h \
+		..\Teatr\l_performance.h \
 		..\Teatr\list.h \
 		..\Teatr\list_users.h \
 		..\Teatr\login.h \
@@ -115,6 +118,7 @@ DIST          = actors.bin \
 		..\Teatr\registration.h \
 		..\Teatr\tickets.h \
 		..\Teatr\users.h ..\Teatr\actor.cpp \
+		..\Teatr\l_performance.cpp \
 		..\Teatr\list.cpp \
 		..\Teatr\list_users.cpp \
 		..\Teatr\login.cpp \
@@ -145,10 +149,10 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) Teatr.zip $(SOURCES) $(DIST) ..\Teatr\Teatr.pro ..\..\QT\5.15.0\mingw81_64\mkspecs\features\spec_pre.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\qdevice.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\features\device_config.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\common\sanitize.conf ..\..\QT\5.15.0\mingw81_64\mkspecs\common\gcc-base.conf ..\..\QT\5.15.0\mingw81_64\mkspecs\common\g++-base.conf ..\..\QT\5.15.0\mingw81_64\mkspecs\common\angle.conf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\win32\windows_vulkan_sdk.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\common\windows-vulkan.conf ..\..\QT\5.15.0\mingw81_64\mkspecs\common\g++-win32.conf ..\..\QT\5.15.0\mingw81_64\mkspecs\common\windows-desktop.conf ..\..\QT\5.15.0\mingw81_64\mkspecs\qconfig.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3danimation.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3danimation_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dcore.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dcore_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dextras.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dextras_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dinput.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dinput_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dlogic.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dlogic_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dquick.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dquick_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dquickanimation.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dquickanimation_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dquickextras.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dquickextras_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dquickinput.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dquickinput_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dquickrender.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dquickrender_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dquickscene2d.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dquickscene2d_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3drender.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3drender_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_accessibility_support_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_axbase.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_axbase_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_axcontainer.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_axcontainer_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_axserver.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_axserver_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_bluetooth.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_bluetooth_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_bootstrap_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_concurrent.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_core.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_core_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_dbus.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_dbus_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_designer.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_designer_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_designercomponents_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_edid_support_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_egl_support_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_fb_support_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_fontdatabase_support_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_gamepad.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_gamepad_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_gui.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_gui_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_help.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_help_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_location.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_location_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_multimedia.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_multimedia_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_multimediawidgets.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_network.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_network_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_nfc.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_nfc_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_opengl.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_opengl_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_openglextensions.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_openglextensions_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_packetprotocol_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_platformcompositor_support_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_positioning.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_positioning_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_positioningquick.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_positioningquick_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_printsupport.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_qml.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_qml_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_qmldebug_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_qmldevtools_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_qmlmodels.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_qmlmodels_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_qmltest.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_qmlworkerscript.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_qmlworkerscript_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_quick.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_quick_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_quickcontrols2.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_quickshapes_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_quicktemplates2.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_remoteobjects.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_remoteobjects_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_repparser.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_repparser_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_scxml.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_scxml_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_sensors.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_sensors_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_serialbus.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_serialbus_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_serialport.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_serialport_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_sql.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_sql_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_svg.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_svg_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_testlib.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_testlib_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_texttospeech.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_texttospeech_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_theme_support_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_uiplugin.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_uitools.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_uitools_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_vulkan_support_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_webchannel.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_webchannel_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_websockets.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_websockets_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_widgets.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_widgets_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_winextras.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_winextras_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_xml.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_xml_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_xmlpatterns.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_xmlpatterns_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_zlib_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\features\qt_functions.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\qt_config.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\win32-g++\qmake.conf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\spec_post.prf .qmake.stash ..\..\QT\5.15.0\mingw81_64\mkspecs\features\exclusive_builds.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\toolchain.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\default_pre.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\win32\default_pre.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\resolve_config.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\exclusive_builds_post.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\default_post.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\build_pass.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\qml_debug.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\precompile_header.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\warn_on.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\qt.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\resources_functions.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\resources.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\moc.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\win32\opengl.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\uic.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\qmake_use.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\file_copies.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\win32\windows.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\testcase_targets.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\exceptions.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\yacc.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\lex.prf ..\Teatr\Teatr.pro ..\Teatr\resources.qrc ..\..\QT\5.15.0\mingw81_64\lib\Qt5Widgets.prl ..\..\QT\5.15.0\mingw81_64\lib\Qt5Gui.prl ..\..\QT\5.15.0\mingw81_64\lib\Qt5Core.prl ..\..\QT\5.15.0\mingw81_64\lib\qtmain.prl   ..\Teatr\resources.qrc ..\..\QT\5.15.0\mingw81_64\mkspecs\features\data\dummy.cpp ..\Teatr\actor.h ..\Teatr\list.h ..\Teatr\list_users.h ..\Teatr\login.h ..\Teatr\mainwindow.h ..\Teatr\more_actor.h ..\Teatr\more_performances.h ..\Teatr\performance.h ..\Teatr\registration.h ..\Teatr\tickets.h ..\Teatr\users.h  ..\Teatr\actor.cpp ..\Teatr\list.cpp ..\Teatr\list_users.cpp ..\Teatr\login.cpp ..\Teatr\main.cpp ..\Teatr\mainwindow.cpp ..\Teatr\more_actor.cpp ..\Teatr\more_performances.cpp ..\Teatr\performance.cpp ..\Teatr\registration.cpp ..\Teatr\tickets.cpp ..\Teatr\users.cpp ..\Teatr\list.ui ..\Teatr\login.ui ..\Teatr\mainwindow.ui ..\Teatr\more_actor.ui ..\Teatr\more_performances.ui ..\Teatr\registration.ui ..\Teatr\tickets.ui    
+	$(ZIP) Teatr.zip $(SOURCES) $(DIST) ..\Teatr\Teatr.pro ..\..\QT\5.15.0\mingw81_64\mkspecs\features\spec_pre.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\qdevice.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\features\device_config.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\common\sanitize.conf ..\..\QT\5.15.0\mingw81_64\mkspecs\common\gcc-base.conf ..\..\QT\5.15.0\mingw81_64\mkspecs\common\g++-base.conf ..\..\QT\5.15.0\mingw81_64\mkspecs\common\angle.conf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\win32\windows_vulkan_sdk.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\common\windows-vulkan.conf ..\..\QT\5.15.0\mingw81_64\mkspecs\common\g++-win32.conf ..\..\QT\5.15.0\mingw81_64\mkspecs\common\windows-desktop.conf ..\..\QT\5.15.0\mingw81_64\mkspecs\qconfig.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3danimation.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3danimation_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dcore.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dcore_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dextras.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dextras_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dinput.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dinput_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dlogic.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dlogic_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dquick.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dquick_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dquickanimation.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dquickanimation_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dquickextras.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dquickextras_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dquickinput.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dquickinput_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dquickrender.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dquickrender_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dquickscene2d.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3dquickscene2d_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3drender.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_3drender_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_accessibility_support_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_axbase.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_axbase_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_axcontainer.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_axcontainer_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_axserver.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_axserver_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_bluetooth.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_bluetooth_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_bootstrap_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_concurrent.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_core.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_core_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_dbus.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_dbus_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_designer.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_designer_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_designercomponents_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_edid_support_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_egl_support_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_fb_support_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_fontdatabase_support_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_gamepad.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_gamepad_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_gui.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_gui_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_help.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_help_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_location.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_location_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_multimedia.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_multimedia_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_multimediawidgets.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_network.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_network_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_nfc.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_nfc_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_opengl.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_opengl_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_openglextensions.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_openglextensions_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_packetprotocol_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_platformcompositor_support_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_positioning.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_positioning_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_positioningquick.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_positioningquick_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_printsupport.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_qml.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_qml_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_qmldebug_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_qmldevtools_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_qmlmodels.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_qmlmodels_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_qmltest.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_qmlworkerscript.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_qmlworkerscript_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_quick.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_quick_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_quickcontrols2.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_quickshapes_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_quicktemplates2.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_remoteobjects.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_remoteobjects_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_repparser.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_repparser_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_scxml.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_scxml_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_sensors.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_sensors_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_serialbus.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_serialbus_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_serialport.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_serialport_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_sql.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_sql_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_svg.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_svg_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_testlib.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_testlib_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_texttospeech.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_texttospeech_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_theme_support_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_uiplugin.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_uitools.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_uitools_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_vulkan_support_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_webchannel.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_webchannel_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_websockets.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_websockets_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_widgets.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_widgets_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_winextras.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_winextras_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_xml.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_xml_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_xmlpatterns.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_xmlpatterns_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\modules\qt_lib_zlib_private.pri ..\..\QT\5.15.0\mingw81_64\mkspecs\features\qt_functions.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\qt_config.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\win32-g++\qmake.conf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\spec_post.prf .qmake.stash ..\..\QT\5.15.0\mingw81_64\mkspecs\features\exclusive_builds.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\toolchain.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\default_pre.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\win32\default_pre.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\resolve_config.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\exclusive_builds_post.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\default_post.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\build_pass.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\qml_debug.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\precompile_header.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\warn_on.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\qt.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\resources_functions.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\resources.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\moc.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\win32\opengl.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\uic.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\qmake_use.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\file_copies.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\win32\windows.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\testcase_targets.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\exceptions.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\yacc.prf ..\..\QT\5.15.0\mingw81_64\mkspecs\features\lex.prf ..\Teatr\Teatr.pro ..\Teatr\resources.qrc ..\..\QT\5.15.0\mingw81_64\lib\Qt5Widgets.prl ..\..\QT\5.15.0\mingw81_64\lib\Qt5Gui.prl ..\..\QT\5.15.0\mingw81_64\lib\Qt5Core.prl ..\..\QT\5.15.0\mingw81_64\lib\qtmain.prl   ..\Teatr\resources.qrc ..\..\QT\5.15.0\mingw81_64\mkspecs\features\data\dummy.cpp ..\Teatr\actor.h ..\Teatr\l_performance.h ..\Teatr\list.h ..\Teatr\list_users.h ..\Teatr\login.h ..\Teatr\mainwindow.h ..\Teatr\more_actor.h ..\Teatr\more_performances.h ..\Teatr\performance.h ..\Teatr\registration.h ..\Teatr\tickets.h ..\Teatr\users.h  ..\Teatr\actor.cpp ..\Teatr\l_performance.cpp ..\Teatr\list.cpp ..\Teatr\list_users.cpp ..\Teatr\login.cpp ..\Teatr\main.cpp ..\Teatr\mainwindow.cpp ..\Teatr\more_actor.cpp ..\Teatr\more_performances.cpp ..\Teatr\performance.cpp ..\Teatr\registration.cpp ..\Teatr\tickets.cpp ..\Teatr\users.cpp ..\Teatr\list.ui ..\Teatr\login.ui ..\Teatr\mainwindow.ui ..\Teatr\more_actor.ui ..\Teatr\more_performances.ui ..\Teatr\registration.ui ..\Teatr\tickets.ui    
 
 clean: compiler_clean 
-	-$(DEL_FILE) debug\actor.o debug\list.o debug\list_users.o debug\login.o debug\main.o debug\mainwindow.o debug\more_actor.o debug\more_performances.o debug\performance.o debug\registration.o debug\tickets.o debug\users.o debug\qrc_resources.o debug\moc_actor.o debug\moc_list.o debug\moc_list_users.o debug\moc_login.o debug\moc_mainwindow.o debug\moc_more_actor.o debug\moc_more_performances.o debug\moc_performance.o debug\moc_registration.o debug\moc_tickets.o
+	-$(DEL_FILE) debug\actor.o debug\l_performance.o debug\list.o debug\list_users.o debug\login.o debug\main.o debug\mainwindow.o debug\more_actor.o debug\more_performances.o debug\performance.o debug\registration.o debug\tickets.o debug\users.o debug\qrc_resources.o debug\moc_actor.o debug\moc_l_performance.o debug\moc_list.o debug\moc_list_users.o debug\moc_login.o debug\moc_mainwindow.o debug\moc_more_actor.o debug\moc_more_performances.o debug\moc_registration.o debug\moc_tickets.o
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
@@ -184,9 +188,9 @@ compiler_moc_predefs_clean:
 debug/moc_predefs.h: ../../QT/5.15.0/mingw81_64/mkspecs/features/data/dummy.cpp
 	g++ -fno-keep-inline-dllexport -g -std=gnu++11 -Wall -Wextra -Wextra -dM -E -o debug\moc_predefs.h ..\..\QT\5.15.0\mingw81_64\mkspecs\features\data\dummy.cpp
 
-compiler_moc_header_make_all: debug/moc_actor.cpp debug/moc_list.cpp debug/moc_list_users.cpp debug/moc_login.cpp debug/moc_mainwindow.cpp debug/moc_more_actor.cpp debug/moc_more_performances.cpp debug/moc_performance.cpp debug/moc_registration.cpp debug/moc_tickets.cpp
+compiler_moc_header_make_all: debug/moc_actor.cpp debug/moc_l_performance.cpp debug/moc_list.cpp debug/moc_list_users.cpp debug/moc_login.cpp debug/moc_mainwindow.cpp debug/moc_more_actor.cpp debug/moc_more_performances.cpp debug/moc_registration.cpp debug/moc_tickets.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) debug\moc_actor.cpp debug\moc_list.cpp debug\moc_list_users.cpp debug\moc_login.cpp debug\moc_mainwindow.cpp debug\moc_more_actor.cpp debug\moc_more_performances.cpp debug\moc_performance.cpp debug\moc_registration.cpp debug\moc_tickets.cpp
+	-$(DEL_FILE) debug\moc_actor.cpp debug\moc_l_performance.cpp debug\moc_list.cpp debug\moc_list_users.cpp debug\moc_login.cpp debug\moc_mainwindow.cpp debug\moc_more_actor.cpp debug\moc_more_performances.cpp debug\moc_registration.cpp debug\moc_tickets.cpp
 debug/moc_actor.cpp: ../Teatr/actor.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/QAbstractItemModel \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qabstractitemmodel.h \
@@ -257,6 +261,77 @@ debug/moc_actor.cpp: ../Teatr/actor.h \
 		debug/moc_predefs.h \
 		../../QT/5.15.0/mingw81_64/bin/moc.exe
 	E:\QT\5.15.0\mingw81_64\bin\moc.exe $(DEFINES) --include E:/Teatr/build-Teatr-Desktop_Qt_5_15_0_MinGW_64_bit-Debug/debug/moc_predefs.h -IE:/QT/5.15.0/mingw81_64/mkspecs/win32-g++ -IE:/Teatr/Teatr -IE:/QT/5.15.0/mingw81_64/include -IE:/QT/5.15.0/mingw81_64/include/QtWidgets -IE:/QT/5.15.0/mingw81_64/include/QtGui -IE:/QT/5.15.0/mingw81_64/include/QtANGLE -IE:/QT/5.15.0/mingw81_64/include/QtCore -I. -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IE:/QT/Tools/mingw810_64/x86_64-w64-mingw32/include ..\Teatr\actor.h -o debug\moc_actor.cpp
+
+debug/moc_l_performance.cpp: ../Teatr/l_performance.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/QAbstractTableModel \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qabstractitemmodel.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qvariant.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qatomic.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qglobal.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qconfig-bootstrapped.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qconfig.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qtcore-config.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qsystemdetection.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qprocessordetection.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qcompilerdetection.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qtypeinfo.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qsysinfo.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qlogging.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qflags.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qglobalstatic.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qmutex.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qnumeric.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qversiontagging.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qbasicatomic.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qatomic_bootstrap.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qgenericatomic.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qatomic_cxx11.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qatomic_msvc.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qbytearray.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qrefcount.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qnamespace.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qarraydata.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qlist.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qalgorithms.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qiterator.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qhashfunctions.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qstring.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qchar.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qstringliteral.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qstringalgorithms.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qstringview.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qstringbuilder.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qpair.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qvector.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qcontainertools_impl.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qpoint.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qbytearraylist.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qstringlist.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qregexp.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qstringmatcher.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qmetatype.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qvarlengtharray.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qcontainerfwd.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qobjectdefs.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qobjectdefs_impl.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qmap.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qdebug.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qhash.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qtextstream.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qiodevice.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qobject.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qcoreevent.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qscopedpointer.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qobject_impl.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qlocale.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qshareddata.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qset.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qcontiguouscache.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qsharedpointer.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qsharedpointer_impl.h \
+		debug/moc_predefs.h \
+		../../QT/5.15.0/mingw81_64/bin/moc.exe
+	E:\QT\5.15.0\mingw81_64\bin\moc.exe $(DEFINES) --include E:/Teatr/build-Teatr-Desktop_Qt_5_15_0_MinGW_64_bit-Debug/debug/moc_predefs.h -IE:/QT/5.15.0/mingw81_64/mkspecs/win32-g++ -IE:/Teatr/Teatr -IE:/QT/5.15.0/mingw81_64/include -IE:/QT/5.15.0/mingw81_64/include/QtWidgets -IE:/QT/5.15.0/mingw81_64/include/QtGui -IE:/QT/5.15.0/mingw81_64/include/QtANGLE -IE:/QT/5.15.0/mingw81_64/include/QtCore -I. -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IE:/QT/Tools/mingw810_64/x86_64-w64-mingw32/include ..\Teatr\l_performance.h -o debug\moc_l_performance.cpp
 
 debug/moc_list.cpp: ../Teatr/list.h \
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/QMainWindow \
@@ -367,7 +442,7 @@ debug/moc_list.cpp: ../Teatr/list.h \
 		../../QT/5.15.0/mingw81_64/include/QtGui/qicon.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/QFile \
 		../Teatr/list_users.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/QAbstractItemModel \
+		../../QT/5.15.0/mingw81_64/include/QtCore/QAbstractTableModel \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qabstractitemmodel.h \
 		../Teatr/users.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/QDataStream \
@@ -377,7 +452,7 @@ debug/moc_list.cpp: ../Teatr/list.h \
 	E:\QT\5.15.0\mingw81_64\bin\moc.exe $(DEFINES) --include E:/Teatr/build-Teatr-Desktop_Qt_5_15_0_MinGW_64_bit-Debug/debug/moc_predefs.h -IE:/QT/5.15.0/mingw81_64/mkspecs/win32-g++ -IE:/Teatr/Teatr -IE:/QT/5.15.0/mingw81_64/include -IE:/QT/5.15.0/mingw81_64/include/QtWidgets -IE:/QT/5.15.0/mingw81_64/include/QtGui -IE:/QT/5.15.0/mingw81_64/include/QtANGLE -IE:/QT/5.15.0/mingw81_64/include/QtCore -I. -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IE:/QT/Tools/mingw810_64/x86_64-w64-mingw32/include ..\Teatr\list.h -o debug\moc_list.cpp
 
 debug/moc_list_users.cpp: ../Teatr/list_users.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/QAbstractItemModel \
+		../../QT/5.15.0/mingw81_64/include/QtCore/QAbstractTableModel \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qabstractitemmodel.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qvariant.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qatomic.h \
@@ -556,6 +631,12 @@ debug/moc_login.cpp: ../Teatr/login.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qfiledevice.h \
 		../../QT/5.15.0/mingw81_64/include/QtGui/qvector2d.h \
 		../../QT/5.15.0/mingw81_64/include/QtGui/qtouchdevice.h \
+		../Teatr/list_users.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/QAbstractTableModel \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qabstractitemmodel.h \
+		../Teatr/users.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/QDataStream \
+		../../QT/5.15.0/mingw81_64/include/QtCore/QString \
 		debug/moc_predefs.h \
 		../../QT/5.15.0/mingw81_64/bin/moc.exe
 	E:\QT\5.15.0\mingw81_64\bin\moc.exe $(DEFINES) --include E:/Teatr/build-Teatr-Desktop_Qt_5_15_0_MinGW_64_bit-Debug/debug/moc_predefs.h -IE:/QT/5.15.0/mingw81_64/mkspecs/win32-g++ -IE:/Teatr/Teatr -IE:/QT/5.15.0/mingw81_64/include -IE:/QT/5.15.0/mingw81_64/include/QtWidgets -IE:/QT/5.15.0/mingw81_64/include/QtGui -IE:/QT/5.15.0/mingw81_64/include/QtANGLE -IE:/QT/5.15.0/mingw81_64/include/QtCore -I. -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IE:/QT/Tools/mingw810_64/x86_64-w64-mingw32/include ..\Teatr\login.h -o debug\moc_login.cpp
@@ -669,6 +750,12 @@ debug/moc_mainwindow.cpp: ../Teatr/mainwindow.h \
 		../../QT/5.15.0/mingw81_64/include/QtGui/qicon.h \
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/QDialog \
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/qdialog.h \
+		../Teatr/list_users.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/QAbstractTableModel \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qabstractitemmodel.h \
+		../Teatr/users.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/QDataStream \
+		../../QT/5.15.0/mingw81_64/include/QtCore/QString \
 		debug/moc_predefs.h \
 		../../QT/5.15.0/mingw81_64/bin/moc.exe
 	E:\QT\5.15.0\mingw81_64\bin\moc.exe $(DEFINES) --include E:/Teatr/build-Teatr-Desktop_Qt_5_15_0_MinGW_64_bit-Debug/debug/moc_predefs.h -IE:/QT/5.15.0/mingw81_64/mkspecs/win32-g++ -IE:/Teatr/Teatr -IE:/QT/5.15.0/mingw81_64/include -IE:/QT/5.15.0/mingw81_64/include/QtWidgets -IE:/QT/5.15.0/mingw81_64/include/QtGui -IE:/QT/5.15.0/mingw81_64/include/QtANGLE -IE:/QT/5.15.0/mingw81_64/include/QtCore -I. -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IE:/QT/Tools/mingw810_64/x86_64-w64-mingw32/include ..\Teatr\mainwindow.h -o debug\moc_mainwindow.cpp
@@ -893,77 +980,6 @@ debug/moc_more_performances.cpp: ../Teatr/more_performances.h \
 		../../QT/5.15.0/mingw81_64/bin/moc.exe
 	E:\QT\5.15.0\mingw81_64\bin\moc.exe $(DEFINES) --include E:/Teatr/build-Teatr-Desktop_Qt_5_15_0_MinGW_64_bit-Debug/debug/moc_predefs.h -IE:/QT/5.15.0/mingw81_64/mkspecs/win32-g++ -IE:/Teatr/Teatr -IE:/QT/5.15.0/mingw81_64/include -IE:/QT/5.15.0/mingw81_64/include/QtWidgets -IE:/QT/5.15.0/mingw81_64/include/QtGui -IE:/QT/5.15.0/mingw81_64/include/QtANGLE -IE:/QT/5.15.0/mingw81_64/include/QtCore -I. -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IE:/QT/Tools/mingw810_64/x86_64-w64-mingw32/include ..\Teatr\more_performances.h -o debug\moc_more_performances.cpp
 
-debug/moc_performance.cpp: ../Teatr/performance.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/QAbstractItemModel \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qabstractitemmodel.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qvariant.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qatomic.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qglobal.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qconfig-bootstrapped.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qconfig.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qtcore-config.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qsystemdetection.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qprocessordetection.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qcompilerdetection.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qtypeinfo.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qsysinfo.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qlogging.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qflags.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qglobalstatic.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qmutex.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qnumeric.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qversiontagging.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qbasicatomic.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qatomic_bootstrap.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qgenericatomic.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qatomic_cxx11.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qatomic_msvc.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qbytearray.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qrefcount.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qnamespace.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qarraydata.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qlist.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qalgorithms.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qiterator.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qhashfunctions.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qstring.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qchar.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qstringliteral.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qstringalgorithms.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qstringview.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qstringbuilder.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qpair.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qvector.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qcontainertools_impl.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qpoint.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qbytearraylist.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qstringlist.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qregexp.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qstringmatcher.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qmetatype.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qvarlengtharray.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qcontainerfwd.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qobjectdefs.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qobjectdefs_impl.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qmap.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qdebug.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qhash.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qtextstream.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qiodevice.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qobject.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qcoreevent.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qscopedpointer.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qobject_impl.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qlocale.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qshareddata.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qset.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qcontiguouscache.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qsharedpointer.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qsharedpointer_impl.h \
-		debug/moc_predefs.h \
-		../../QT/5.15.0/mingw81_64/bin/moc.exe
-	E:\QT\5.15.0\mingw81_64\bin\moc.exe $(DEFINES) --include E:/Teatr/build-Teatr-Desktop_Qt_5_15_0_MinGW_64_bit-Debug/debug/moc_predefs.h -IE:/QT/5.15.0/mingw81_64/mkspecs/win32-g++ -IE:/Teatr/Teatr -IE:/QT/5.15.0/mingw81_64/include -IE:/QT/5.15.0/mingw81_64/include/QtWidgets -IE:/QT/5.15.0/mingw81_64/include/QtGui -IE:/QT/5.15.0/mingw81_64/include/QtANGLE -IE:/QT/5.15.0/mingw81_64/include/QtCore -I. -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IE:/QT/Tools/mingw810_64/x86_64-w64-mingw32/include ..\Teatr\performance.h -o debug\moc_performance.cpp
-
 debug/moc_registration.cpp: ../Teatr/registration.h \
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/QWidget \
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/qwidget.h \
@@ -1070,6 +1086,9 @@ debug/moc_registration.cpp: ../Teatr/registration.h \
 		../../QT/5.15.0/mingw81_64/include/QtGui/qtouchdevice.h \
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/QDialog \
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/qdialog.h \
+		../Teatr/users.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/QDataStream \
+		../../QT/5.15.0/mingw81_64/include/QtCore/QString \
 		debug/moc_predefs.h \
 		../../QT/5.15.0/mingw81_64/bin/moc.exe
 	E:\QT\5.15.0\mingw81_64\bin\moc.exe $(DEFINES) --include E:/Teatr/build-Teatr-Desktop_Qt_5_15_0_MinGW_64_bit-Debug/debug/moc_predefs.h -IE:/QT/5.15.0/mingw81_64/mkspecs/win32-g++ -IE:/Teatr/Teatr -IE:/QT/5.15.0/mingw81_64/include -IE:/QT/5.15.0/mingw81_64/include/QtWidgets -IE:/QT/5.15.0/mingw81_64/include/QtGui -IE:/QT/5.15.0/mingw81_64/include/QtANGLE -IE:/QT/5.15.0/mingw81_64/include/QtCore -I. -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IE:/QT/Tools/mingw810_64/x86_64-w64-mingw32/include ..\Teatr\registration.h -o debug\moc_registration.cpp
@@ -1300,6 +1319,75 @@ debug/actor.o: ../Teatr/actor.cpp ../Teatr/actor.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qsharedpointer_impl.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\actor.o ..\Teatr\actor.cpp
 
+debug/l_performance.o: ../Teatr/l_performance.cpp ../Teatr/l_performance.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/QAbstractTableModel \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qabstractitemmodel.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qvariant.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qatomic.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qglobal.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qconfig-bootstrapped.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qconfig.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qtcore-config.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qsystemdetection.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qprocessordetection.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qcompilerdetection.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qtypeinfo.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qsysinfo.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qlogging.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qflags.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qglobalstatic.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qmutex.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qnumeric.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qversiontagging.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qbasicatomic.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qatomic_bootstrap.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qgenericatomic.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qatomic_cxx11.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qatomic_msvc.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qbytearray.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qrefcount.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qnamespace.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qarraydata.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qlist.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qalgorithms.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qiterator.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qhashfunctions.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qstring.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qchar.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qstringliteral.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qstringalgorithms.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qstringview.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qstringbuilder.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qpair.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qvector.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qcontainertools_impl.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qpoint.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qbytearraylist.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qstringlist.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qregexp.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qstringmatcher.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qmetatype.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qvarlengtharray.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qcontainerfwd.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qobjectdefs.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qobjectdefs_impl.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qmap.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qdebug.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qhash.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qtextstream.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qiodevice.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qobject.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qcoreevent.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qscopedpointer.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qobject_impl.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qlocale.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qshareddata.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qset.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qcontiguouscache.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qsharedpointer.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qsharedpointer_impl.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\l_performance.o ..\Teatr\l_performance.cpp
+
 debug/list.o: ../Teatr/list.cpp ../Teatr/list.h \
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/QMainWindow \
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/qmainwindow.h \
@@ -1409,7 +1497,7 @@ debug/list.o: ../Teatr/list.cpp ../Teatr/list.h \
 		../../QT/5.15.0/mingw81_64/include/QtGui/qicon.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/QFile \
 		../Teatr/list_users.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/QAbstractItemModel \
+		../../QT/5.15.0/mingw81_64/include/QtCore/QAbstractTableModel \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qabstractitemmodel.h \
 		../Teatr/users.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/QDataStream \
@@ -1426,6 +1514,11 @@ debug/list.o: ../Teatr/list.cpp ../Teatr/list.h \
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/qdesktopwidget.h \
 		../../QT/5.15.0/mingw81_64/include/QtGui/qguiapplication.h \
 		../../QT/5.15.0/mingw81_64/include/QtGui/qinputmethod.h \
+		../../QT/5.15.0/mingw81_64/include/QtWidgets/QGridLayout \
+		../../QT/5.15.0/mingw81_64/include/QtWidgets/qgridlayout.h \
+		../../QT/5.15.0/mingw81_64/include/QtWidgets/qlayout.h \
+		../../QT/5.15.0/mingw81_64/include/QtWidgets/qlayoutitem.h \
+		../../QT/5.15.0/mingw81_64/include/QtWidgets/qboxlayout.h \
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/QHeaderView \
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/qheaderview.h \
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/qabstractitemview.h \
@@ -1463,7 +1556,7 @@ debug/list.o: ../Teatr/list.cpp ../Teatr/list.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\list.o ..\Teatr\list.cpp
 
 debug/list_users.o: ../Teatr/list_users.cpp ../Teatr/list_users.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/QAbstractItemModel \
+		../../QT/5.15.0/mingw81_64/include/QtCore/QAbstractTableModel \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qabstractitemmodel.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qvariant.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qatomic.h \
@@ -1640,6 +1733,12 @@ debug/login.o: ../Teatr/login.cpp ../Teatr/login.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qfiledevice.h \
 		../../QT/5.15.0/mingw81_64/include/QtGui/qvector2d.h \
 		../../QT/5.15.0/mingw81_64/include/QtGui/qtouchdevice.h \
+		../Teatr/list_users.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/QAbstractTableModel \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qabstractitemmodel.h \
+		../Teatr/users.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/QDataStream \
+		../../QT/5.15.0/mingw81_64/include/QtCore/QString \
 		ui_login.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/QVariant \
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/QApplication \
@@ -1668,9 +1767,6 @@ debug/login.o: ../Teatr/login.cpp ../Teatr/login.h \
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/QMainWindow \
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/qmainwindow.h \
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/qtabwidget.h \
-		../Teatr/users.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/QDataStream \
-		../../QT/5.15.0/mingw81_64/include/QtCore/QString \
 		../../QT/5.15.0/mingw81_64/include/QtCore/QFile \
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/QMessageBox \
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/qmessagebox.h
@@ -1781,6 +1877,12 @@ debug/main.o: ../Teatr/main.cpp ../Teatr/login.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qfiledevice.h \
 		../../QT/5.15.0/mingw81_64/include/QtGui/qvector2d.h \
 		../../QT/5.15.0/mingw81_64/include/QtGui/qtouchdevice.h \
+		../Teatr/list_users.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/QAbstractTableModel \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qabstractitemmodel.h \
+		../Teatr/users.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/QDataStream \
+		../../QT/5.15.0/mingw81_64/include/QtCore/QString \
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/QApplication \
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/qapplication.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qcoreapplication.h \
@@ -1904,6 +2006,12 @@ debug/mainwindow.o: ../Teatr/mainwindow.cpp ../Teatr/mainwindow.h \
 		../../QT/5.15.0/mingw81_64/include/QtGui/qicon.h \
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/QDialog \
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/qdialog.h \
+		../Teatr/list_users.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/QAbstractTableModel \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qabstractitemmodel.h \
+		../Teatr/users.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/QDataStream \
+		../../QT/5.15.0/mingw81_64/include/QtCore/QString \
 		ui_mainwindow.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/QVariant \
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/QApplication \
@@ -1935,12 +2043,6 @@ debug/mainwindow.o: ../Teatr/mainwindow.cpp ../Teatr/mainwindow.h \
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/QWidget \
 		../Teatr/list.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/QFile \
-		../Teatr/list_users.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/QAbstractItemModel \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qabstractitemmodel.h \
-		../Teatr/users.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/QDataStream \
-		../../QT/5.15.0/mingw81_64/include/QtCore/QString \
 		../Teatr/login.h \
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/QMessageBox \
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/qmessagebox.h
@@ -2200,13 +2302,6 @@ debug/more_performances.o: ../Teatr/more_performances.cpp ../Teatr/more_performa
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/qdesktopwidget.h \
 		../../QT/5.15.0/mingw81_64/include/QtGui/qguiapplication.h \
 		../../QT/5.15.0/mingw81_64/include/QtGui/qinputmethod.h \
-		../../QT/5.15.0/mingw81_64/include/QtWidgets/QFormLayout \
-		../../QT/5.15.0/mingw81_64/include/QtWidgets/qformlayout.h \
-		../../QT/5.15.0/mingw81_64/include/QtWidgets/QLayout \
-		../../QT/5.15.0/mingw81_64/include/QtWidgets/qlayout.h \
-		../../QT/5.15.0/mingw81_64/include/QtWidgets/qlayoutitem.h \
-		../../QT/5.15.0/mingw81_64/include/QtWidgets/qboxlayout.h \
-		../../QT/5.15.0/mingw81_64/include/QtWidgets/qgridlayout.h \
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/QLabel \
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/qlabel.h \
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/qframe.h \
@@ -2225,10 +2320,9 @@ debug/more_performances.o: ../Teatr/more_performances.cpp ../Teatr/more_performa
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\more_performances.o ..\Teatr\more_performances.cpp
 
 debug/performance.o: ../Teatr/performance.cpp ../Teatr/performance.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/QAbstractItemModel \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qabstractitemmodel.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qvariant.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qatomic.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/QDataStream \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qdatastream.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qscopedpointer.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qglobal.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qconfig-bootstrapped.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qconfig.h \
@@ -2240,29 +2334,34 @@ debug/performance.o: ../Teatr/performance.cpp ../Teatr/performance.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qsysinfo.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qlogging.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qflags.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qglobalstatic.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qmutex.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qnumeric.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qversiontagging.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qatomic.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qbasicatomic.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qatomic_bootstrap.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qgenericatomic.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qatomic_cxx11.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qatomic_msvc.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qbytearray.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qrefcount.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qglobalstatic.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qmutex.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qnumeric.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qversiontagging.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qiodevice.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qobject.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qobjectdefs.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qnamespace.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qarraydata.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qlist.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qalgorithms.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qiterator.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qhashfunctions.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qobjectdefs_impl.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qstring.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qchar.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qbytearray.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qrefcount.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qarraydata.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qstringliteral.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qstringalgorithms.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qstringview.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qstringbuilder.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qlist.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qalgorithms.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qiterator.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qhashfunctions.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qpair.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qvector.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qcontainertools_impl.h \
@@ -2271,26 +2370,12 @@ debug/performance.o: ../Teatr/performance.cpp ../Teatr/performance.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qstringlist.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qregexp.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qstringmatcher.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/qcoreevent.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qmetatype.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qvarlengtharray.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qcontainerfwd.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qobjectdefs.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qobjectdefs_impl.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qmap.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qdebug.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qhash.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qtextstream.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qiodevice.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qobject.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qcoreevent.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qscopedpointer.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/qobject_impl.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qlocale.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qshareddata.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qset.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qcontiguouscache.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qsharedpointer.h \
-		../../QT/5.15.0/mingw81_64/include/QtCore/qsharedpointer_impl.h
+		../../QT/5.15.0/mingw81_64/include/QtCore/QString
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\performance.o ..\Teatr\performance.cpp
 
 debug/registration.o: ../Teatr/registration.cpp ../Teatr/registration.h \
@@ -2399,6 +2484,9 @@ debug/registration.o: ../Teatr/registration.cpp ../Teatr/registration.h \
 		../../QT/5.15.0/mingw81_64/include/QtGui/qtouchdevice.h \
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/QDialog \
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/qdialog.h \
+		../Teatr/users.h \
+		../../QT/5.15.0/mingw81_64/include/QtCore/QDataStream \
+		../../QT/5.15.0/mingw81_64/include/QtCore/QString \
 		ui_registration.h \
 		../../QT/5.15.0/mingw81_64/include/QtCore/QVariant \
 		../../QT/5.15.0/mingw81_64/include/QtWidgets/QApplication \
@@ -2639,6 +2727,9 @@ debug/qrc_resources.o: debug/qrc_resources.cpp
 debug/moc_actor.o: debug/moc_actor.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_actor.o debug\moc_actor.cpp
 
+debug/moc_l_performance.o: debug/moc_l_performance.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_l_performance.o debug\moc_l_performance.cpp
+
 debug/moc_list.o: debug/moc_list.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_list.o debug\moc_list.cpp
 
@@ -2656,9 +2747,6 @@ debug/moc_more_actor.o: debug/moc_more_actor.cpp
 
 debug/moc_more_performances.o: debug/moc_more_performances.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_more_performances.o debug\moc_more_performances.cpp
-
-debug/moc_performance.o: debug/moc_performance.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_performance.o debug\moc_performance.cpp
 
 debug/moc_registration.o: debug/moc_registration.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_registration.o debug\moc_registration.cpp

@@ -24,7 +24,7 @@ class Ui_tickets
 public:
     QPushButton *pushButton;
     QPushButton *pushButton_2;
-    QWidget *layoutWidget;
+    QWidget *widget;
     QFormLayout *formLayout;
     QLabel *label;
     QLineEdit *lineEdit;
@@ -43,75 +43,77 @@ public:
     {
         if (tickets->objectName().isEmpty())
             tickets->setObjectName(QString::fromUtf8("tickets"));
-        tickets->resize(430, 241);
+        tickets->resize(422, 232);
+        tickets->setMinimumSize(QSize(422, 232));
+        tickets->setMaximumSize(QSize(422, 232));
         pushButton = new QPushButton(tickets);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setGeometry(QRect(330, 180, 81, 41));
         pushButton_2 = new QPushButton(tickets);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
         pushButton_2->setGeometry(QRect(240, 180, 81, 41));
-        layoutWidget = new QWidget(tickets);
-        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(20, 20, 391, 152));
-        formLayout = new QFormLayout(layoutWidget);
+        widget = new QWidget(tickets);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(21, 21, 391, 152));
+        formLayout = new QFormLayout(widget);
         formLayout->setObjectName(QString::fromUtf8("formLayout"));
         formLayout->setContentsMargins(0, 0, 0, 0);
-        label = new QLabel(layoutWidget);
+        label = new QLabel(widget);
         label->setObjectName(QString::fromUtf8("label"));
 
         formLayout->setWidget(0, QFormLayout::LabelRole, label);
 
-        lineEdit = new QLineEdit(layoutWidget);
+        lineEdit = new QLineEdit(widget);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
 
         formLayout->setWidget(0, QFormLayout::FieldRole, lineEdit);
 
-        label_2 = new QLabel(layoutWidget);
+        label_2 = new QLabel(widget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
 
         formLayout->setWidget(1, QFormLayout::LabelRole, label_2);
 
-        lineEdit_2 = new QLineEdit(layoutWidget);
+        lineEdit_2 = new QLineEdit(widget);
         lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
 
         formLayout->setWidget(1, QFormLayout::FieldRole, lineEdit_2);
 
-        label_3 = new QLabel(layoutWidget);
+        label_3 = new QLabel(widget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
 
         formLayout->setWidget(2, QFormLayout::LabelRole, label_3);
 
-        lineEdit_3 = new QLineEdit(layoutWidget);
+        lineEdit_3 = new QLineEdit(widget);
         lineEdit_3->setObjectName(QString::fromUtf8("lineEdit_3"));
 
         formLayout->setWidget(2, QFormLayout::FieldRole, lineEdit_3);
 
-        label_4 = new QLabel(layoutWidget);
+        label_4 = new QLabel(widget);
         label_4->setObjectName(QString::fromUtf8("label_4"));
 
         formLayout->setWidget(3, QFormLayout::LabelRole, label_4);
 
-        lineEdit_4 = new QLineEdit(layoutWidget);
+        lineEdit_4 = new QLineEdit(widget);
         lineEdit_4->setObjectName(QString::fromUtf8("lineEdit_4"));
 
         formLayout->setWidget(3, QFormLayout::FieldRole, lineEdit_4);
 
-        label_5 = new QLabel(layoutWidget);
+        label_5 = new QLabel(widget);
         label_5->setObjectName(QString::fromUtf8("label_5"));
 
         formLayout->setWidget(4, QFormLayout::LabelRole, label_5);
 
-        lineEdit_5 = new QLineEdit(layoutWidget);
+        lineEdit_5 = new QLineEdit(widget);
         lineEdit_5->setObjectName(QString::fromUtf8("lineEdit_5"));
 
         formLayout->setWidget(4, QFormLayout::FieldRole, lineEdit_5);
 
-        label_6 = new QLabel(layoutWidget);
+        label_6 = new QLabel(widget);
         label_6->setObjectName(QString::fromUtf8("label_6"));
 
         formLayout->setWidget(5, QFormLayout::LabelRole, label_6);
 
-        lineEdit_6 = new QLineEdit(layoutWidget);
+        lineEdit_6 = new QLineEdit(widget);
         lineEdit_6->setObjectName(QString::fromUtf8("lineEdit_6"));
 
         formLayout->setWidget(5, QFormLayout::FieldRole, lineEdit_6);

@@ -21,14 +21,14 @@ public:
     bool openFile();
     void setFileName(QString fileName);
 
+
 private slots:
     bool on_add_triggered();
-    void refreshWindowTitle();
     void setlist(list_users *list);
     bool on_save_triggered();
     void saveListToFile();
     void setList(list_users *l);
-
+    void on_tableView_doubleClicked(const QModelIndex &index);
 
 signals:
     //! Сигнализирует, что записная книжка готова к работе с пользователем (после создания или открытия).

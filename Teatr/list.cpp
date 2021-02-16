@@ -12,24 +12,6 @@ list::list(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::list)
 {
-    // Присоединяем сигналы, соответствующие изменению статуса записной книжки,
-    // к слоту, обеспечивающему обновление заголовка окна
-    connect(this, &list::listReady, this, &list::refreshWindowTitle);
-    connect(this, &list::listClosed, this, &list::refreshWindowTitle);
-    // Присоединяем сигнал создания записной книжки к лямбда-выражению,
-    // устанавливающему в главном окне признак изменения (имеет ли текущий
-    // документ несохранённые изменения). В заголовке окна при наличии
-    // несохранённых изменений будет отображаться звёздочка или другое
-    // обозначение, в зависимости от системы. "[this]" в лямбда-выражении
-    // означает, что оно обращается к методам данного класса (в данном случае к
-    // методу MainWindow::setWindowModified()).
-    //
-    // Лямбда-выражение — это выражение, результатом которого является
-    // функциональный объект (объект, действующий как функция). В фигурных
-    // скобках записывается тело этой функции. Таким образом, в данном случае
-    // сигнал MainWindow::notebookCreated будет вызывать код, записанный в
-    // фигурных скобках, то есть метод MainWindow::setWindowModified() с параметром true.
-    connect(this, &list::listCreated, [this] { setWindowModified(true); });
     // Отображаем GUI, сгенерированный из файла mainwindow.ui, в данном окне
     ui->setupUi(this);
     // Настраиваем таблицу заметок, чтобы её последняя колонка занимала всё доступное место
@@ -46,6 +28,7 @@ bool list::on_add_triggered()
 {
     registration r(this);
     Users user;
+    user.setLvl(0);
     r.setUser(&user);
     if (r.exec() != registration::Accepted)
     {
@@ -56,15 +39,10 @@ bool list::on_add_triggered()
     return true;
 }
 
-void list::refreshWindowTitle()
-{
-    setWindowTitle(tr("%1 - %2[*]").arg("ИС Театр").arg(zag));
-}
 
 void list::setTitle(QString zagolovok)
 {
-    zag = zagolovok;
-    refreshWindowTitle();
+    setWindowTitle(tr("ИС Театр - %1[*]").arg(zagolovok));
 }
 void list::setFileName(QString fileName)
 {
@@ -171,4 +149,14 @@ void list::setList(list_users *l)
     mlist.reset(l);
     // Связываем новый объект записной книжки с таблицей заметок в главном окне
     ui->tableView->setModel(mlist.get());
+}
+
+void list::on_tableView_doubleClicked(const QModelIndex &index)
+{
+    if(QMessageBox::question(this,"Подтверждение удаления", "Вы действительно хотите удалить запись?",
+                             QMessageBox::Yes | QMessageBox::No)==QMessageBox::No)
+    {
+        return;
+    }
+    mlist->delNote(index.row());
 }

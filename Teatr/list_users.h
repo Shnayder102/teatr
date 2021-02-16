@@ -24,6 +24,9 @@ public:
     void save(QDataStream &ost) const;
     //! Очищает записную книжку и загружает новую из потока \a ist. Возвращает количество загруженных заметок.
     SizeType load(QDataStream &ist);
+    int search(QString log, QString pass);
+    void delNote(int idx);
+
 
 private:
         std::vector<Users> us_l;

@@ -1,4 +1,5 @@
 debug/actor.o
+debug/l_performance.o
 debug/list.o
 debug/list_users.o
 debug/login.o
@@ -12,12 +13,12 @@ debug/tickets.o
 debug/users.o
 debug/qrc_resources.o
 debug/moc_actor.o
+debug/moc_l_performance.o
 debug/moc_list.o
 debug/moc_list_users.o
 debug/moc_login.o
 debug/moc_mainwindow.o
 debug/moc_more_actor.o
 debug/moc_more_performances.o
-debug/moc_performance.o
 debug/moc_registration.o
 debug/moc_tickets.o

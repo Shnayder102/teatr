@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
@@ -29,6 +30,7 @@ public:
     QAction *save;
     QAction *add;
     QWidget *centralwidget;
+    QGridLayout *gridLayout_2;
     QTableView *tableView;
     QMenuBar *menubar;
     QMenu *menu;
@@ -39,7 +41,7 @@ public:
     {
         if (list->objectName().isEmpty())
             list->setObjectName(QString::fromUtf8("list"));
-        list->resize(430, 333);
+        list->resize(403, 321);
         save = new QAction(list);
         save->setObjectName(QString::fromUtf8("save"));
         QIcon icon;
@@ -52,13 +54,18 @@ public:
         add->setIcon(icon1);
         centralwidget = new QWidget(list);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        gridLayout_2 = new QGridLayout(centralwidget);
+        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         tableView = new QTableView(centralwidget);
         tableView->setObjectName(QString::fromUtf8("tableView"));
-        tableView->setGeometry(QRect(0, 0, 431, 281));
+        tableView->setAutoFillBackground(false);
+
+        gridLayout_2->addWidget(tableView, 0, 0, 1, 1);
+
         list->setCentralWidget(centralwidget);
         menubar = new QMenuBar(list);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 430, 21));
+        menubar->setGeometry(QRect(0, 0, 403, 21));
         menu = new QMenu(menubar);
         menu->setObjectName(QString::fromUtf8("menu"));
         list->setMenuBar(menubar);

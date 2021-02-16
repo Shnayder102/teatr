@@ -61,7 +61,7 @@ QVariant list_users::data(const QModelIndex &index, int role) const
         }
         if (index.column()==1)
         {
-            return us_l[index.row()].pass();
+            return us_l[index.row()].lvl();
         }
     }
     // Игнорируем все остальные запросы, возвращая пустой QVariant
@@ -132,4 +132,31 @@ list_users::SizeType list_users::load(QDataStream &ist)
     // что мы закончили сброс модели
     endResetModel();
     return us_l.size();
+}
+
+int list_users::search(QString log, QString pass)
+{
+    unsigned int i=0;
+    for (i=0; i < us_l.size(); i++)
+    {
+        if ((us_l[i].log()==log) && (us_l[i].pass()==pass))
+        {
+            return us_l[i].lvl();
+        }
+    }
+    return 0;
+}
+void list_users::delNote(int idx)
+{
+    // В соответствии с требованиями Qt, уведомляем привязанные виды о том,
+    // что мы начинаем удалять строки из модели
+    beginRemoveRows(QModelIndex(), // Индекс родителя, из списка потомков которого удаляются строки
+                    idx, // Номер первой удаляемой строки
+                    idx // Номер последней удаляемой строки
+                    );
+    // Удаляем из вектора элемент с индексом idx
+    us_l.erase(std::next(us_l.begin(), idx));
+    // В соответствии с требованиями Qt, уведомляем привязанные виды о том,
+    // что мы закончили удалять строки из модели
+    endRemoveRows();
 }

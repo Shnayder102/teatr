@@ -11,9 +11,10 @@ class Users
 {
 public:
     Users();
-    Users(QString log, QString password);
+    Users(QString log, QString password, int lvl);
     const QString &log() const;
     const QString &pass() const;
+    const int &lvl() const;
     void save(QDataStream &ost) const;
     void load(QDataStream &ist);
     void setLog(QString s);
@@ -24,7 +25,7 @@ private:
     QString mLogin;
     //! Текст заметки.
     QString mPass;
-    QString mLvl;
+    int mLvl;
 };
 
 inline QDataStream &operator<<(QDataStream &ost, const Users &users)

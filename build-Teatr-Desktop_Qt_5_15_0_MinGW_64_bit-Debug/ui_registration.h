@@ -43,6 +43,8 @@ public:
         if (registration->objectName().isEmpty())
             registration->setObjectName(QString::fromUtf8("registration"));
         registration->resize(281, 269);
+        registration->setMinimumSize(QSize(281, 269));
+        registration->setMaximumSize(QSize(281, 269));
         layoutWidget = new QWidget(registration);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
         layoutWidget->setGeometry(QRect(20, 230, 239, 19));
@@ -77,6 +79,8 @@ public:
         splitter->addWidget(label);
         new_login = new QLineEdit(splitter);
         new_login->setObjectName(QString::fromUtf8("new_login"));
+        new_login->setMinimumSize(QSize(133, 24));
+        new_login->setMaximumSize(QSize(133, 24));
         splitter->addWidget(new_login);
         label_2 = new QLabel(splitter);
         label_2->setObjectName(QString::fromUtf8("label_2"));
@@ -85,6 +89,8 @@ public:
         splitter->addWidget(label_2);
         new_pass = new QLineEdit(splitter);
         new_pass->setObjectName(QString::fromUtf8("new_pass"));
+        new_pass->setMinimumSize(QSize(133, 25));
+        new_pass->setMaximumSize(QSize(133, 25));
         splitter->addWidget(new_pass);
         label_3 = new QLabel(splitter);
         label_3->setObjectName(QString::fromUtf8("label_3"));
@@ -93,6 +99,8 @@ public:
         splitter->addWidget(label_3);
         new_pass2 = new QLineEdit(splitter);
         new_pass2->setObjectName(QString::fromUtf8("new_pass2"));
+        new_pass2->setMinimumSize(QSize(133, 25));
+        new_pass2->setMaximumSize(QSize(133, 25));
         splitter->addWidget(new_pass2);
         pushButton = new QPushButton(splitter);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));

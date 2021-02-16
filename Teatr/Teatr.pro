@@ -17,6 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     actor.cpp \
+    l_performance.cpp \
     list.cpp \
     list_users.cpp \
     login.cpp \
@@ -31,6 +32,7 @@ SOURCES += \
 
 HEADERS += \
     actor.h \
+    l_performance.h \
     list.h \
     list_users.h \
     login.h \
@@ -63,7 +65,7 @@ DISTFILES += \
     icons/Notebook-open.svg \
     icons/Notebook-save-as.svg \
     icons/Notebook-save.svg \
-    performance.bin \
+    l_performance.bin \
     users.bin \
     viewer.bin
 

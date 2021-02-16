@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_list_t {
-    QByteArrayData data[16];
-    char stringdata0[168];
+    QByteArrayData data[18];
+    char stringdata0[194];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -41,20 +41,23 @@ QT_MOC_LITERAL(5, 39, 8), // "fileName"
 QT_MOC_LITERAL(6, 48, 9), // "listSaved"
 QT_MOC_LITERAL(7, 58, 10), // "listClosed"
 QT_MOC_LITERAL(8, 69, 16), // "on_add_triggered"
-QT_MOC_LITERAL(9, 86, 18), // "refreshWindowTitle"
-QT_MOC_LITERAL(10, 105, 7), // "setlist"
-QT_MOC_LITERAL(11, 113, 11), // "list_users*"
-QT_MOC_LITERAL(12, 125, 17), // "on_save_triggered"
-QT_MOC_LITERAL(13, 143, 14), // "saveListToFile"
-QT_MOC_LITERAL(14, 158, 7), // "setList"
-QT_MOC_LITERAL(15, 166, 1) // "l"
+QT_MOC_LITERAL(9, 86, 7), // "setlist"
+QT_MOC_LITERAL(10, 94, 11), // "list_users*"
+QT_MOC_LITERAL(11, 106, 17), // "on_save_triggered"
+QT_MOC_LITERAL(12, 124, 14), // "saveListToFile"
+QT_MOC_LITERAL(13, 139, 7), // "setList"
+QT_MOC_LITERAL(14, 147, 1), // "l"
+QT_MOC_LITERAL(15, 149, 26), // "on_tableView_doubleClicked"
+QT_MOC_LITERAL(16, 176, 11), // "QModelIndex"
+QT_MOC_LITERAL(17, 188, 5) // "index"
 
     },
     "list\0listReady\0\0listCreated\0listOpened\0"
     "fileName\0listSaved\0listClosed\0"
-    "on_add_triggered\0refreshWindowTitle\0"
-    "setlist\0list_users*\0on_save_triggered\0"
-    "saveListToFile\0setList\0l"
+    "on_add_triggered\0setlist\0list_users*\0"
+    "on_save_triggered\0saveListToFile\0"
+    "setList\0l\0on_tableView_doubleClicked\0"
+    "QModelIndex\0index"
 };
 #undef QT_MOC_LITERAL
 
@@ -80,11 +83,11 @@ static const uint qt_meta_data_list[] = {
 
  // slots: name, argc, parameters, tag, flags
        8,    0,   76,    2, 0x08 /* Private */,
-       9,    0,   77,    2, 0x08 /* Private */,
-      10,    1,   78,    2, 0x08 /* Private */,
+       9,    1,   77,    2, 0x08 /* Private */,
+      11,    0,   80,    2, 0x08 /* Private */,
       12,    0,   81,    2, 0x08 /* Private */,
-      13,    0,   82,    2, 0x08 /* Private */,
-      14,    1,   83,    2, 0x08 /* Private */,
+      13,    1,   82,    2, 0x08 /* Private */,
+      15,    1,   85,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
@@ -95,11 +98,11 @@ static const uint qt_meta_data_list[] = {
 
  // slots: parameters
     QMetaType::Bool,
-    QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 11,    0,
+    QMetaType::Void, 0x80000000 | 10,    0,
     QMetaType::Bool,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 11,   15,
+    QMetaType::Void, 0x80000000 | 10,   14,
+    QMetaType::Void, 0x80000000 | 16,   17,
 
        0        // eod
 };
@@ -117,25 +120,25 @@ void list::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
         case 4: _t->listClosed(); break;
         case 5: { bool _r = _t->on_add_triggered();
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 6: _t->refreshWindowTitle(); break;
-        case 7: _t->setlist((*reinterpret_cast< list_users*(*)>(_a[1]))); break;
-        case 8: { bool _r = _t->on_save_triggered();
+        case 6: _t->setlist((*reinterpret_cast< list_users*(*)>(_a[1]))); break;
+        case 7: { bool _r = _t->on_save_triggered();
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 9: _t->saveListToFile(); break;
-        case 10: _t->setList((*reinterpret_cast< list_users*(*)>(_a[1]))); break;
+        case 8: _t->saveListToFile(); break;
+        case 9: _t->setList((*reinterpret_cast< list_users*(*)>(_a[1]))); break;
+        case 10: _t->on_tableView_doubleClicked((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-        case 7:
+        case 6:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:
                 *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< list_users* >(); break;
             }
             break;
-        case 10:
+        case 9:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:
