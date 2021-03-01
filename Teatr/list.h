@@ -4,7 +4,10 @@
 #include <QMainWindow>
 #include <QFile>
 
+#include "l_performance.h"
 #include "list_users.h"
+#include "list_actors.h"
+#include "list_tickets.h"
 
 namespace Ui {
 class list;
@@ -20,15 +23,39 @@ public:
     void setTitle(QString zagolovok);
     bool openFile();
     void setFileName(QString fileName);
+    void setLevel(int lvl);
+    void setListNum(int num);
+    void setLogin(QString log);
+    void enableAdminButtons();
+    void disableAdminButtons();
 
 
 private slots:
     bool on_add_triggered();
-    void setlist(list_users *list);
+    bool addUser();
+    bool addPerformance();
+    bool addActor();
+    void setList(list_users *list);
+    void setList(l_performance *list);
+    void setList(list_actors *list);
+    void setList(list_tickets *list);
     bool on_save_triggered();
     void saveListToFile();
-    void setList(list_users *l);
     void on_tableView_doubleClicked(const QModelIndex &index);
+    void deleteUser(int index);
+    void deletePerf(int index);
+    void deleteActor(int index);
+    void editPerf(const QModelIndex &index);
+    bool buyTicket(const QModelIndex &index);
+    void morePerf(const QModelIndex &index);
+    void editActor(const QModelIndex &index);
+    void moreActor(const QModelIndex &index);
+    void moreTicket(const QModelIndex &index);
+    void openUsersFile(QDataStream &ist);
+    void openPerfFile(QDataStream &ist);
+    void openActorFile(QDataStream &ist);
+    void openTicketFile(QDataStream &ist);
+    void on_del_triggered();
 
 signals:
     //! Сигнализирует, что записная книжка готова к работе с пользователем (после создания или открытия).
@@ -47,8 +74,12 @@ signals:
 
 private:
     Ui::list *ui;
-    QString zag, f;
-    std::unique_ptr<list_users> mlist;
+    QString f_name, login;
+    std::unique_ptr<list_users> mList_u;
+    std::unique_ptr<l_performance> mList_p;
+    std::unique_ptr<list_actors> mList_a;
+    std::unique_ptr<list_tickets> mList_t;
+    int n_list, level, tickets_idx;
 };
 
 #endif // LIST_H

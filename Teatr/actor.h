@@ -1,29 +1,44 @@
 #ifndef ACTOR_H
 #define ACTOR_H
 
-#include <QAbstractItemModel>
+#include <QDataStream>
+#include <QString>
 
-class actor : public QAbstractItemModel
+class Actor
 {
-    Q_OBJECT
-
 public:
-    explicit actor(QObject *parent = nullptr);
-
-    // Header:
-    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
-
-    // Basic functionality:
-    QModelIndex index(int row, int column,
-                      const QModelIndex &parent = QModelIndex()) const override;
-    QModelIndex parent(const QModelIndex &index) const override;
-
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
-
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
-
+    Actor();
+    Actor(QString surname, QString name, QString patronymic, QString birthday, QString roles);
+    const QString &surname() const;
+    const QString &name() const;
+    const QString &patronymic() const;
+    const QString &birthday() const;
+    const QString &roles() const;
+    void save(QDataStream &ost) const;
+    void load(QDataStream &ist);
+    void setSurname(QString s);
+    void setName(QString s);
+    void setPatronymic(QString s);
+    void setBirthday (QString s);
+    void setRoles(QString s);
 private:
+    QString mSurname;
+    QString mName;
+    QString mPatronymic;
+    QString mBirthday;
+    QString mRoles;
 };
+
+inline QDataStream &operator<<(QDataStream &ost, const Actor &a)
+{
+    a.save(ost);
+    return ost;
+}
+
+inline QDataStream &operator>>(QDataStream &ist, Actor &a)
+{
+    a.load(ist);
+    return ist;
+}
 
 #endif // ACTOR_H

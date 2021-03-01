@@ -24,8 +24,15 @@ private slots:
     void on_pushButton_5_clicked();
 
 
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_6_clicked();
+
 private:
     Ui::MainWindow *ui;
     list_users *list_us;
+    int level;
 };
 #endif // MAINWINDOW_H

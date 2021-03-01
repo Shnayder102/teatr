@@ -29,6 +29,7 @@ class Ui_list
 public:
     QAction *save;
     QAction *add;
+    QAction *del;
     QWidget *centralwidget;
     QGridLayout *gridLayout_2;
     QTableView *tableView;
@@ -52,6 +53,11 @@ public:
         QIcon icon1;
         icon1.addFile(QString::fromUtf8(":/icons/Note-add.svg"), QSize(), QIcon::Normal, QIcon::Off);
         add->setIcon(icon1);
+        del = new QAction(list);
+        del->setObjectName(QString::fromUtf8("del"));
+        QIcon icon2;
+        icon2.addFile(QString::fromUtf8(":/icons/Note-remove.svg"), QSize(), QIcon::Normal, QIcon::Off);
+        del->setIcon(icon2);
         centralwidget = new QWidget(list);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout_2 = new QGridLayout(centralwidget);
@@ -79,8 +85,10 @@ public:
         menubar->addAction(menu->menuAction());
         menu->addAction(save);
         menu->addAction(add);
+        menu->addAction(del);
         toolBar->addAction(add);
         toolBar->addAction(save);
+        toolBar->addAction(del);
 
         retranslateUi(list);
 
@@ -92,6 +100,7 @@ public:
         list->setWindowTitle(QCoreApplication::translate("list", "MainWindow", nullptr));
         save->setText(QCoreApplication::translate("list", "\320\241\320\276\321\205\321\200\320\260\320\275\320\270\321\202\321\214", nullptr));
         add->setText(QCoreApplication::translate("list", "\320\224\320\276\320\261\320\260\320\262\320\270\321\202\321\214", nullptr));
+        del->setText(QCoreApplication::translate("list", "\320\243\320\264\320\260\320\273\320\270\321\202\321\214", nullptr));
         menu->setTitle(QCoreApplication::translate("list", "\320\234\320\265\320\275\321\216", nullptr));
         toolBar->setWindowTitle(QCoreApplication::translate("list", "toolBar", nullptr));
     } // retranslateUi

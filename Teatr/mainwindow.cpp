@@ -18,22 +18,6 @@ MainWindow::~MainWindow()
 }
 
 
-void MainWindow::on_pushButton_4_clicked()
-{
-    list *l=new list(this);
-    l->setTitle("Список пользователей");
-    l->setFileName(QCoreApplication::applicationDirPath() + "/users.bin");
-    l->openFile();
-    l->show();
-}
-
-void MainWindow::on_pushButton_5_clicked()
-{
-    login *log=new login;
-    log->show();
-    this->close();
-}
-
 void MainWindow::setLogin(QString s)
 {
     ui->login_mainw->setText(s);
@@ -41,6 +25,7 @@ void MainWindow::setLogin(QString s)
 
 void MainWindow::options_lvl(int lvl)
 {
+    level = lvl;
     switch (lvl)
     {
         case 1:
@@ -65,4 +50,56 @@ void MainWindow::options_lvl(int lvl)
             ui->urd_mainw->setText("Зритель");
             break;
     }
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    list *l=new list(this);
+    l->setTitle("Список спектаклей");
+    l->setFileName(QCoreApplication::applicationDirPath() + "/performance.bin");
+    l->setListNum(2);
+    l->setLevel(level);
+    l->openFile();
+    l->show();
+}
+
+void MainWindow::on_pushButton_4_clicked()
+{
+    list *l=new list(this);
+    l->setTitle("Список пользователей");
+    l->setFileName(QCoreApplication::applicationDirPath() + "/users.bin");
+    l->setListNum(1);
+    l->setLevel(level);
+    l->openFile();
+    l->show();
+}
+
+void MainWindow::on_pushButton_5_clicked()
+{
+    login *log=new login;
+    log->show();
+    this->close();
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    list *l=new list(this);
+    l->setTitle("Список актёров");
+    l->setFileName(QCoreApplication::applicationDirPath() + "/actors.bin");
+    l->setListNum(3);
+    l->setLevel(level);
+    l->openFile();
+    l->show();
+}
+
+void MainWindow::on_pushButton_6_clicked()
+{
+    list *l=new list(this);
+    l->setTitle("Список билетов");
+    l->setFileName(QCoreApplication::applicationDirPath() + "/viewers.bin");
+    l->setListNum(4);
+    l->setLevel(level);
+    l->setLogin(ui->login_mainw->text());
+    l->openFile();
+    l->show();
 }

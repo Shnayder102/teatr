@@ -1,46 +1,73 @@
 #include "actor.h"
 
-actor::actor(QObject *parent)
-    : QAbstractItemModel(parent)
+Actor::Actor()
 {
 }
 
-QVariant actor::headerData(int section, Qt::Orientation orientation, int role) const
+Actor::Actor(QString surname, QString name, QString patronymic, QString birthday, QString roles)
+    : mSurname(surname)
+    , mName(name)
+    , mPatronymic(patronymic)
+    , mBirthday(birthday)
+    , mRoles(roles)
 {
-    // FIXME: Implement me!
 }
 
-QModelIndex actor::index(int row, int column, const QModelIndex &parent) const
+const QString &Actor::surname() const
 {
-    // FIXME: Implement me!
+    return mSurname;
 }
 
-QModelIndex actor::parent(const QModelIndex &index) const
+const QString &Actor::name() const
 {
-    // FIXME: Implement me!
+    return mName;
 }
 
-int actor::rowCount(const QModelIndex &parent) const
+const QString &Actor::patronymic() const
 {
-    if (!parent.isValid())
-        return 0;
-
-    // FIXME: Implement me!
+    return mPatronymic;
 }
 
-int actor::columnCount(const QModelIndex &parent) const
+const QString &Actor::birthday() const
 {
-    if (!parent.isValid())
-        return 0;
-
-    // FIXME: Implement me!
+    return mBirthday;
 }
 
-QVariant actor::data(const QModelIndex &index, int role) const
-{
-    if (!index.isValid())
-        return QVariant();
 
-    // FIXME: Implement me!
-    return QVariant();
+const QString &Actor::roles() const
+{
+    return mRoles;
+}
+
+void Actor::save(QDataStream &ost) const
+{
+    ost << mSurname << mName << mPatronymic << mRoles;
+}
+
+void Actor::load(QDataStream &ist)
+{
+    ist >> mSurname >> mName >> mPatronymic >> mRoles;
+}
+
+void Actor::setSurname(QString s)
+{
+    mSurname = s;
+}
+void Actor::setName(QString s)
+{
+    mName = s;
+}
+void Actor::setPatronymic(QString s)
+{
+    mPatronymic = s;
+}
+
+void Actor::setBirthday(QString s)
+{
+    mBirthday =s ;
+}
+
+void Actor::setRoles(QString s)
+{
+    mRoles = s;
 }

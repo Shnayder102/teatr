@@ -19,29 +19,35 @@ SOURCES += \
     actor.cpp \
     l_performance.cpp \
     list.cpp \
+    list_actors.cpp \
+    list_tickets.cpp \
     list_users.cpp \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
     more_actor.cpp \
     more_performances.cpp \
+    more_ticket.cpp \
     performance.cpp \
     registration.cpp \
-    tickets.cpp \
+    ticket.cpp \
     users.cpp
 
 HEADERS += \
     actor.h \
     l_performance.h \
     list.h \
+    list_actors.h \
+    list_tickets.h \
     list_users.h \
     login.h \
     mainwindow.h \
     more_actor.h \
     more_performances.h \
+    more_ticket.h \
     performance.h \
     registration.h \
-    tickets.h \
+    ticket.h \
     users.h
 
 FORMS += \
@@ -50,8 +56,8 @@ FORMS += \
     mainwindow.ui \
     more_actor.ui \
     more_performances.ui \
-    registration.ui \
-    tickets.ui
+    more_ticket.ui \
+    registration.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

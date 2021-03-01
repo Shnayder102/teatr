@@ -146,6 +146,20 @@ int list_users::search(QString log, QString pass)
     }
     return 0;
 }
+
+bool list_users::search(QString log, int lvl)
+{
+    unsigned int i=0;
+    for (i=0; i < us_l.size(); i++)
+    {
+        if ((us_l[i].log() == log) && (us_l[i].lvl() == lvl))
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
 void list_users::delNote(int idx)
 {
     // В соответствии с требованиями Qt, уведомляем привязанные виды о том,

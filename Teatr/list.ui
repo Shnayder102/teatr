@@ -39,6 +39,7 @@
     </property>
     <addaction name="save"/>
     <addaction name="add"/>
+    <addaction name="del"/>
    </widget>
    <addaction name="menu"/>
   </widget>
@@ -55,6 +56,7 @@
    </attribute>
    <addaction name="add"/>
    <addaction name="save"/>
+   <addaction name="del"/>
   </widget>
   <action name="save">
    <property name="icon">
@@ -72,6 +74,15 @@
    </property>
    <property name="text">
     <string>Добавить</string>
+   </property>
+  </action>
+  <action name="del">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/Note-remove.svg</normaloff>:/icons/Note-remove.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Удалить</string>
    </property>
   </action>
  </widget>

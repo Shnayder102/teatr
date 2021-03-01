@@ -24,9 +24,24 @@ public:
     SizeType load(QDataStream &ist);
     int search(QString log, QString pass);
     void delNote(int idx);
+    Performance give_perf(int idx);
+    void edit(QModelIndex idx, Performance perf);
 
 private:
     std::vector<Performance> l_perf;
+
 };
+
+inline QDataStream &operator<<(QDataStream &ost, const l_performance &list_p)
+{
+    list_p.save(ost);
+    return ost;
+}
+
+inline QDataStream &operator>>(QDataStream &ist, l_performance &list_p)
+{
+    list_p.load(ist);
+    return ist;
+}
 
 #endif // L_PERFOMANCE_H

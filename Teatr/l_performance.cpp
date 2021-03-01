@@ -15,11 +15,11 @@ QVariant l_performance::headerData(int section, Qt::Orientation orientation, int
             // Если столбец первый, возвращаем заголовок
             if (section == 0)
             {
-                return tr("Логин");
+                return tr("Название спектакля");
             }
             if (section == 1)
             {
-                return tr("Уровень доступа");
+                return tr("Дата и время");
             }
         }
         // Если речь о заголовках строк...
@@ -36,7 +36,7 @@ QVariant l_performance::headerData(int section, Qt::Orientation orientation, int
 
 int l_performance::rowCount(const QModelIndex &parent) const
 {
-    if (!parent.isValid()) return l_perf.size();
+    if (!parent.isValid()) return l_perf.size()*5;
     else return 0;
 }
 
@@ -53,15 +53,16 @@ QVariant l_performance::data(const QModelIndex &index, int role) const
     {
         // Если столбец первый, возвращаем заголовок заметки, находящейся
         // в соответствующей строке таблицы
-        if (index.column() == 0)
+        if ((index.column() == 0) && (l_perf[index.row() / 5].name() != ""))
         {
             // При возврате строка заголовка (QString) автоматически преобразуется
             // в QVariant
-            return l_perf[index.row()].name();
+            return l_perf[index.row() / 5].name();
         }
-        if (index.column()==1)
+        if ((index.column() == 1) && (l_perf[index.row() / 5].name() != ""))
         {
-            return l_perf[index.row()].date();
+
+            return l_perf[index.row() / 5].datetimes()[index.row() % 5];
         }
     }
     // Игнорируем все остальные запросы, возвращая пустой QVariant
@@ -73,17 +74,17 @@ l_performance::SizeType l_performance::size() const
     return l_perf.size();
 }
 
-void l_performance::insert(const Users &user)
+void l_performance::insert(const Performance &perf)
 {
     // В соответствии с требованиями Qt, уведомляем привязанные виды о том,
     // что мы начинаем вставлять строки в модель.
     // Вставку производим в конец, поэтому номер новой строки будет равен size()
     beginInsertRows(QModelIndex(), // Индекс родителя, в список потомков которого добавляются строки
                     size(), // Номер первой добавляемой строки
-                    size() // Номер последней добавляемой строки
+                    size() + 4 // Номер последней добавляемой строки
                     );
     // Вставляем заметку в конец вектора mNotes
-    l_perf.push_back(user);
+    l_perf.push_back(perf);
     // В соответствии с требованиями Qt, уведомляем привязанные виды о том,
     // что мы закончили вставлять строки в модель.
     endInsertRows();
@@ -92,7 +93,7 @@ void l_performance::insert(const Users &user)
 void l_performance::save(QDataStream &ost) const
 {
     // Цикл по всем заметкам
-    for (const Users &n : l_perf)
+    for (const Performance &n : l_perf)
     {
         // Выводим заметку в поток
         ost << n;
@@ -117,7 +118,7 @@ l_performance::SizeType l_performance::load(QDataStream &ist)
     // Пока в потоке есть данные
     while (!ist.atEnd())
     {
-        Users n;
+        Performance n;
         // Читаем очередную заметку из потока
         ist >> n;
         // Если возникла ошибка, запускаем исключительную ситуацию
@@ -134,7 +135,7 @@ l_performance::SizeType l_performance::load(QDataStream &ist)
     return l_perf.size();
 }
 
-int l_performance::search(QString log, QString pass)
+/*int l_performance::search(QString log, QString pass)
 {
     unsigned int i=0;
     for (i=0; i < l_perf.size(); i++)
@@ -145,7 +146,7 @@ int l_performance::search(QString log, QString pass)
         }
     }
     return 0;
-}
+}*/
 void l_performance::delNote(int idx)
 {
     // В соответствии с требованиями Qt, уведомляем привязанные виды о том,
@@ -159,4 +160,15 @@ void l_performance::delNote(int idx)
     // В соответствии с требованиями Qt, уведомляем привязанные виды о том,
     // что мы закончили удалять строки из модели
     endRemoveRows();
+}
+
+Performance l_performance::give_perf(int idx)
+{
+    return l_perf[idx];
+}
+
+void l_performance::edit(QModelIndex idx, Performance perf)
+{
+    l_perf[idx.row() / 5] = perf;
+    emit dataChanged(idx,idx);
 }
